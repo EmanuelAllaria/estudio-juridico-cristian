@@ -343,6 +343,7 @@ function init() {
   initFooter();
   initTracking();
   if (typeof initAnimations === "function") initAnimations();
+  if (typeof initGoogleReviewsLive === "function") initGoogleReviewsLive();
 }
 
 if (document.readyState === "loading") {

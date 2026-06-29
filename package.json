@@ -1,16 +1,28 @@
 {
   "name": "landing-german",
-  "version": "1.0.0",
-  "description": "Landing Abogados Laborales CABA",
-  "type": "module",
+  "version": "2.0.0",
+  "description": "Landing Abogados Laborales CABA — Next.js",
+  "private": true,
   "scripts": {
-    "build": "node scripts/build.mjs",
-    "dev": "node scripts/build.mjs && npx serve . -p 3456",
-    "test:responsive": "node scripts/build.mjs && node scripts/test-responsive.mjs"
+    "dev": "next dev",
+    "build": "node scripts/generate-images.mjs && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "sync:reviews": "node scripts/sync-google-reviews.mjs",
+    "test:responsive": "next build && node scripts/test-responsive.mjs"
+  },
+  "dependencies": {
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
     "mime-types": "^3.0.2",
     "playwright": "^1.61.1",
-    "sharp": "^0.34.3"
+    "sharp": "^0.34.3",
+    "typescript": "^5.8.3"
   }
 }

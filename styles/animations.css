@@ -1,0 +1,75 @@
+/* ========== REVEAL SYSTEM ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--duration-reveal) var(--ease-out-expo),
+    transform var(--duration-reveal) var(--ease-out-expo);
+  transition-delay: calc(var(--i, 0) * var(--stagger-step));
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal--fade {
+  transform: none;
+}
+
+.reveal--scale {
+  transform: translateY(16px) scale(0.97);
+}
+
+.reveal--scale.is-visible {
+  transform: none;
+}
+
+.reveal--left.is-visible {
+  transform: none;
+}
+
+.reveal--right.is-visible {
+  transform: none;
+}
+
+/* Hero stagger on load */
+.hero .reveal {
+  transition-duration: var(--duration-hero);
+}
+
+.hero--ready .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.hero--ready .reveal--scale {
+  transform: none;
+}
+
+/* ========== HERO GLOW ========== */
+@keyframes heroGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 50% at 50% -20%,
+    rgba(184, 149, 107, 0.14) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: heroGlow 10s ease-in-out infinite;
+}
+
+/* ========== HEADER ENTRANCE ========== */
+/* transform defined in sections.css; is-visible via header--entered */
