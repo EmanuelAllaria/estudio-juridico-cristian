@@ -68,7 +68,7 @@ export function buildSchema(config: PageConfig) {
             closes: "23:59",
           },
         ],
-        sameAs: [config.googleMapsUrl],
+        sameAs: [config.googleMapsUrl, config.instagramUrl],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Servicios de derecho laboral",

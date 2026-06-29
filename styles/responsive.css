@@ -74,6 +74,11 @@
   .header__cta {
     display: inline-flex;
   }
+
+  .header__cta-text {
+    max-width: none;
+    white-space: nowrap;
+  }
 }
 
 /* ========== DESKTOP (1024px+) ========== */
@@ -147,6 +152,11 @@
   .btn:hover,
   .float-cta__btn:hover {
     transform: none;
+  }
+
+  .btn--pulse,
+  .btn--pulse:hover {
+    animation: none;
   }
 
   .header__nav--open {

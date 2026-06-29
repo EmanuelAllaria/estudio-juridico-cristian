@@ -16,6 +16,7 @@ export interface Specialty {
   id: string;
   title: string;
   description: string;
+  whatsappMessage: string;
   track: string;
   icon: IconName;
 }
@@ -51,9 +52,12 @@ export interface SiteConfig {
   address: string;
   mapsUrl: string;
   googleMapsUrl: string;
+  instagramUrl: string;
   domain: string;
   googlePlaceId: string;
   trustBadges: TrustBadge[];
+  heroStatsTitle: string;
+  heroStats: string[];
   specialties: Specialty[];
   reviews: Review[];
   processSteps: ProcessStep[];
@@ -72,6 +76,7 @@ export const SITE_CONFIG: SiteConfig = {
   mapsUrl: "https://maps.app.goo.gl/weeMB9y9jiw2BjBy5",
   googleMapsUrl:
     "https://www.google.com/maps/place/Abogados+Laborales+%26+Asoc./@-34.6020072,-58.3907044,17z/data=!3m1!4b1!4m6!3m5!1s0x95bccba0ab8466f9:0x9198d8f008c1f834!8m2!3d-34.6020072!4d-58.3907044!16s%2Fg%2F11cn3vx9hq",
+  instagramUrl: "https://www.instagram.com/abogadolaboral.caba/",
   domain: "https://www.aboglaborales.com.ar",
   googlePlaceId: "ChIJ-WaEq6DLvJURNPjBCPDYmJE",
 
@@ -82,53 +87,74 @@ export const SITE_CONFIG: SiteConfig = {
     { icon: "scale", text: "Honorarios solo por resultado" },
   ],
 
+  heroStatsTitle: "¿Por qué miles de trabajadores nos eligen?",
+  heroStats: [
+    "20+ años defendiendo trabajadores",
+    "10.000+ trabajadores confiaron en nosotros",
+    "2.500+ casos resueltos",
+    "Calificación 5 estrellas en Google",
+    "Respuesta rápida por WhatsApp",
+  ],
+
   specialties: [
     {
       id: "despidos",
-      title: "Despidos",
+      title: "¿Te despidieron?",
       description:
-        "Despido con o sin causa, verbal o por carta documento. Te asesoramos para reclamar la máxima indemnización y defendemos tus derechos ante el empleador.",
+        "Despido con o sin causa, verbal o por telegrama. Te asesoramos para reclamar tu máxima indemnización. No firmes nada sin consultar.",
+      whatsappMessage:
+        "Hola Estudio, me despidieron y necesito asesoramiento urgente.",
       track: "cta-section-despidos",
       icon: "briefcase",
     },
     {
-      id: "accidentes",
-      title: "Accidentes de trabajo",
-      description:
-        "Enfermedades y accidentes laborales. Reclamamos ante la ART la indemnización que te corresponde, con peritos médicos especializados.",
-      track: "cta-section-accidentes",
-      icon: "heart",
-    },
-    {
       id: "negro",
-      title: "Trabajo en negro",
+      title: "¿Trabajás en negro?",
       description:
-        "Trabajaste sin registración total o parcial. Te ayudamos a reconocer tu relación laboral, antigüedad y cobrar lo que te corresponde.",
+        "Si no estás registrado o te pagan una parte en mano, tenés derecho a exigir que te blanqueen o a considerarte despedido y reclamar una indemnización.",
+      whatsappMessage:
+        "Hola Estudio, me despidieron y necesito asesoramiento urgente.",
       track: "cta-section-negro",
       icon: "file",
     },
     {
-      id: "diferencias",
-      title: "Diferencias salariales",
+      id: "accidentes",
+      title: "¿Tuviste un accidente?",
       description:
-        "Cobro de salarios adeudados, atrasos y diferencias en tu remuneración. Evaluamos tu caso y gestionamos el reclamo correspondiente.",
-      track: "cta-section-diferencias",
+        "Lesiones en tu trabajo o yendo/volviendo (in itinere). Reclamamos ante la ART la indemnización que te corresponde con peritos médicos propios.",
+      whatsappMessage:
+        "Hola, tuve un accidente de trabajo y quiero consultar por el reclamo a la ART.",
+      track: "cta-section-accidentes",
+      icon: "heart",
+    },
+    {
+      id: "sueldos",
+      title: "¿Te deben sueldos?",
+      description:
+        "Falta de pago de salarios, aguinaldos, horas extras o atrasos constantes. Evaluamos la deuda y gestionamos el reclamo urgente.",
+      whatsappMessage:
+        "Hola Estudio, la empresa me debe sueldos y quiero iniciar el reclamo.",
+      track: "cta-section-sueldos",
       icon: "scale",
     },
     {
-      id: "indemnizaciones",
-      title: "Indemnizaciones",
+      id: "renuncia",
+      title: "¿Te obligan a renunciar?",
       description:
-        "Calculamos y reclamamos todas las indemnizaciones que te corresponden según tu situación laboral y antigüedad.",
-      track: "cta-section-indemnizaciones",
+        "No envíes ningún telegrama ni firmes nada sin asesorarte. Si te maltratan, te cambian el horario o te presionan para que te vayas, tenés derecho a reclamar tu indemnización.",
+      whatsappMessage:
+        "Hola Estudio, necesito asesoramiento porque me están presionando para renunciar.",
+      track: "cta-section-renuncia",
       icon: "shield",
     },
     {
-      id: "horas-extras",
-      title: "Reclamo de horas extras",
+      id: "liquidacion",
+      title: "¿Cuánto te corresponde?",
       description:
-        "Errónea registración de jornada, horas extras no pagadas y telegramas laborales. Te asesoramos en SECLO y en todo el proceso judicial.",
-      track: "cta-section-horas-extras",
+        "Te ayudamos a calcular tu liquidación e indemnización exacta según tu antigüedad y sueldo real para que reclames lo que la ley te garantiza.",
+      whatsappMessage:
+        "Hola, me gustaría que me ayuden a calcular mi liquidación e indemnización.",
+      track: "cta-section-liquidacion",
       icon: "clock",
     },
   ],

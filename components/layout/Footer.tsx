@@ -10,11 +10,11 @@ export function Footer() {
       <div className="container footer__inner">
         <div className="footer__brand">
           <Image
-            src="/images/logo.svg"
+            src="/images/logo-light.svg"
             alt=""
             className="footer__logo-img"
-            width={120}
-            height={42}
+            width={180}
+            height={40}
             aria-hidden
           />
         </div>
@@ -34,6 +34,24 @@ export function Footer() {
           </p>
           <p>
             <a href={getMailtoUrl()}>{SITE_CONFIG.email}</a>
+          </p>
+          <p className="footer__social">
+            <a
+              href={SITE_CONFIG.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram @abogadolaboral.caba
+            </a>
+          </p>
+          <p className="footer__social">
+            <a
+              href={SITE_CONFIG.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver en Google
+            </a>
           </p>
         </div>
 

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useGoogleReviews } from "@/components/GoogleReviewsProvider";
 import { revealReviewCards } from "@/components/ScrollReveal";
+import { GoogleBadge } from "@/components/ui/GoogleBadge";
 import { GoogleIcon } from "@/components/ui/Icon";
 import { ReviewCard } from "@/components/ui/ReviewCard";
 import { Stars } from "@/components/ui/Stars";
@@ -34,13 +35,15 @@ export function Reviews() {
         </header>
 
         <div className="reviews-panel">
+          <GoogleBadge rating={data.rating} variant="panel" />
+
           <div className="reviews-panel__header">
             <div className="reviews-panel__google">
-              <GoogleIcon />
+              <GoogleIcon className="reviews-panel__google-icon" size={36} />
               <div>
                 <p className="reviews-panel__label">Google Reviews</p>
                 <div className="reviews-panel__score" id="reviews-score">
-                  <Stars rating={data.rating} size="sm" />
+                  <Stars rating={data.rating} size="lg" />
                   <span className="reviews-panel__rating">
                     <strong>{ratingText}</strong> ·{" "}
                     <span id="review-count">{data.reviewCount}</span> opiniones

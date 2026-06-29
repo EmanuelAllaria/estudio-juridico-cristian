@@ -1,3 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 52" role="img" aria-label="Abogados Laborales">
-  <text x="0" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="32" fill="#0c1222">Abogados Laborales</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 88" role="img" aria-label="Abogados Laborales">
+  <g fill="none" stroke="#CC0000" stroke-width="2.75" stroke-linecap="square">
+    <path d="M6 6 H394 V50 H248 M152 50 H6 V6" />
+  </g>
+  <text
+    x="200"
+    y="36"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, 'Segoe UI', sans-serif"
+    font-size="30"
+    font-weight="700"
+    letter-spacing="0.14em"
+    fill="#111111"
+  >ABOGADOS</text>
+  <text
+    x="200"
+    y="72"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, 'Segoe UI', sans-serif"
+    font-size="15"
+    font-weight="400"
+    letter-spacing="0.22em"
+    fill="#111111"
+  >LABORALES</text>
 </svg>

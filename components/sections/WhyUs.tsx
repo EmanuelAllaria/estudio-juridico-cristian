@@ -58,7 +58,7 @@ export function WhyUs() {
               rel="noopener noreferrer"
             >
               <WhatsAppIcon />
-              Consultá tu caso ahora
+              Consultá gratis por WhatsApp
             </a>
           </div>
 

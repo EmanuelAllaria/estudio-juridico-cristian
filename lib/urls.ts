@@ -1,8 +1,11 @@
 import { SITE_CONFIG, type SiteConfig } from "./site-config";
 
-export function getWhatsAppUrl(config: SiteConfig = SITE_CONFIG): string {
-  const message = encodeURIComponent(config.whatsappMessage);
-  return `https://wa.me/${config.whatsapp}?text=${message}`;
+export function getWhatsAppUrl(
+  config: SiteConfig = SITE_CONFIG,
+  message?: string
+): string {
+  const text = message ?? config.whatsappMessage;
+  return `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(text)}`;
 }
 
 export function getPhoneUrl(config: SiteConfig = SITE_CONFIG): string {

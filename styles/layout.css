@@ -10,7 +10,13 @@
 }
 
 .section--white {
+  position: relative;
   background-color: var(--color-surface);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)),
+    url("/images/hero-bg.webp");
+  background-size: cover;
+  background-position: center;
 }
 
 .section--slate {

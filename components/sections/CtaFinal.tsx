@@ -24,7 +24,7 @@ export function CtaFinal() {
             rel="noopener noreferrer"
           >
             <WhatsAppIcon size={22} />
-            Escribinos por WhatsApp
+            Iniciar Consulta Gratuita por WhatsApp
           </a>
           <a
             href={getPhoneUrl()}

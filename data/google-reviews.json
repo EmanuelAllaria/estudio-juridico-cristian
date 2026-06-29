@@ -4,40 +4,40 @@
   "reviews": [
     {
       "name": "Robert Soria",
-      "rating": 5,
       "text": "I had an excellent experience with Germán. I contacted him for a legal consultation, and he got back to me quickly. During our conversation, he was very clear, direct, and professional, calmly explaining all the options and possible outcomes of the case.\n\nI especially want to highlight his honesty and the straightforward way he guided me. I am very grateful for his help and highly recommend him.",
+      "rating": 5,
       "date": "4 months ago",
       "initials": "RS"
     },
     {
       "name": "Leila Hernandez",
-      "rating": 5,
       "text": "The service is EXCELLENT! I had a work-related issue and they advised me quickly, very professional and committed to my situation. I recommend them 100%. They are super reliable and resolve issues by defending what is rightfully yours. They're awesome! 🙌🏼",
+      "rating": 5,
       "date": "a month ago",
       "initials": "LH"
     },
     {
       "name": "Elsa Guitian",
-      "rating": 5,
       "text": "I highly recommend Dr. Germán Carnevalle, a labor lawyer. He has a clear understanding of labor law. He always responded immediately by phone and video call. He assists with drafting responses to telegrams. I verified that the \"24-hour service\" is completely genuine. He provided me with all his support free of charge and with great professionalism. Thank you so much, Dr.!",
+      "rating": 5,
       "date": "4 months ago",
       "initials": "EG"
     },
     {
       "name": "Silvina Mata",
-      "rating": 5,
       "text": "Excellent team of lawyers!\nThey respond promptly.\nThey are very helpful to their clients.",
+      "rating": 5,
       "date": "4 months ago",
       "initials": "SM"
     },
     {
       "name": "Chuma Agostini",
-      "rating": 5,
       "text": "Excellent service and incredibly fast; if the call drops, they call you back. Thank you so much!",
+      "rating": 5,
       "date": "5 months ago",
       "initials": "CA"
     }
   ],
   "source": "places-api",
-  "fetchedAt": "2026-06-29T17:28:41.535Z"
+  "fetchedAt": "2026-06-29T22:47:17.048Z"
 }

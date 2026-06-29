@@ -1,40 +1,37 @@
 "use client";
 
+import { GoogleBadge } from "@/components/ui/GoogleBadge";
 import { PhoneIcon, WhatsAppIcon } from "@/components/ui/Icon";
 import { useGoogleReviews } from "@/components/GoogleReviewsProvider";
-import { formatRating, renderStars } from "@/lib/stars";
+import { SITE_CONFIG } from "@/lib/site-config";
 import { getPhoneUrl, getWhatsAppUrl } from "@/lib/urls";
 
 export function Hero() {
   const { data } = useGoogleReviews();
-  const ratingText = formatRating(data.rating);
 
   return (
     <section id="inicio" className="hero section" aria-labelledby="hero-title">
       <div className="container hero__inner">
         <div className="hero__content">
-          <p className="hero__eyebrow reveal reveal--left">
-            Abogados Laborales en CABA
-          </p>
           <h1 id="hero-title" className="reveal reveal--left">
-            Defendemos tus derechos laborales — consulta sin cargo
+            Especialistas en Defensa de Trabajadores
           </h1>
           <p className="hero__subtitle reveal reveal--left">
-            Equipo de abogados laboralistas especializados en despidos,
-            accidentes de trabajo, trabajo en negro e indemnizaciones.
-            Atención 24 horas por WhatsApp.
+            Si te despidieron, trabajás en negro o sufriste un accidente de
+            trabajo, nuestro equipo de Abogados Laboralistas te ayuda a cobrar
+            la indemnización que te corresponde.
           </p>
 
           <div className="hero__cta-group reveal reveal--left">
             <a
               href={getWhatsAppUrl()}
-              className="btn btn--whatsapp btn--wrap"
+              className="btn btn--whatsapp btn--wrap btn--pulse"
               data-track="cta-hero-whatsapp"
               target="_blank"
               rel="noopener noreferrer"
             >
               <WhatsAppIcon />
-              Consultá gratis por WhatsApp
+              Iniciar Consulta Gratuita por WhatsApp
             </a>
             <a
               href={getPhoneUrl()}
@@ -51,40 +48,19 @@ export function Hero() {
             aria-label="Calificación en Google"
             id="hero-rating"
           >
-            <div className="stars" aria-hidden="true">
-              <span className="stars__icon">{renderStars(data.rating)}</span>
-            </div>
-            <span className="hero__rating-text" id="hero-rating-text">
-              <strong>{ratingText}</strong> · {data.reviewCount} reseñas en
-              Google
-            </span>
+            <GoogleBadge rating={data.rating} variant="hero" />
           </div>
         </div>
 
-        <div className="hero__visual" aria-hidden="true">
-          <div className="hero__card reveal reveal--scale reveal--right">
-            <div className="hero__card-icon">
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-            </div>
-            <p className="hero__card-title">Tu defensa laboral</p>
-            <p className="hero__card-text">
-              Equipo de abogados laboralistas en Tucumán 1668, CABA
-            </p>
-            <ul className="hero__card-list">
-              <li>Consulta sin cargo</li>
-              <li>Honorarios por resultado</li>
-              <li>Atención 24 horas</li>
+        <div className="hero__visual">
+          <div className="hero__stats reveal reveal--scale reveal--right">
+            <h2 className="hero__stats-title">{SITE_CONFIG.heroStatsTitle}</h2>
+            <ul className="hero__stats-list">
+              {SITE_CONFIG.heroStats.map((item) => (
+                <li key={item} className="hero__stats-item">
+                  {item}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

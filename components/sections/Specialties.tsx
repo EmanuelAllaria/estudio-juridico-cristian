@@ -3,8 +3,6 @@ import { SITE_CONFIG } from "@/lib/site-config";
 import { getWhatsAppUrl } from "@/lib/urls";
 
 export function Specialties() {
-  const waUrl = getWhatsAppUrl();
-
   return (
     <section
       id="servicios"
@@ -18,29 +16,30 @@ export function Specialties() {
             ¿En qué podemos ayudarte?
           </h2>
           <p className="section-subtitle">
-            Somos un equipo de abogados laboralistas dedicados a la defensa de
-            los derechos de los trabajadores en Buenos Aires.
+            Tocá el servicio que necesitás y escribinos por WhatsApp con tu
+            consulta.
           </p>
         </header>
 
         <div className="specialties-grid" id="specialties-grid">
           {SITE_CONFIG.specialties.map((spec) => (
-            <article key={spec.id} className="card specialty-card">
+            <a
+              key={spec.id}
+              href={getWhatsAppUrl(SITE_CONFIG, spec.whatsappMessage)}
+              className="card specialty-card specialty-card--link"
+              data-track={spec.track}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className="card__icon" aria-hidden="true">
                 <Icon name={spec.icon} />
               </div>
               <h3 className="card__title">{spec.title}</h3>
               <p className="card__text">{spec.description}</p>
-              <a
-                href={waUrl}
-                className="btn--link"
-                data-track={spec.track}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Consultá tu caso
-              </a>
-            </article>
+              <span className="btn--link specialty-card__cta">
+                Consultá tu caso →
+              </span>
+            </a>
           ))}
         </div>
       </div>
