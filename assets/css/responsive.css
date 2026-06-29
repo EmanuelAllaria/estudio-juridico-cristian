@@ -1,0 +1,173 @@
+/* ========== SMALL MOBILE (≤359px) ========== */
+@media (max-width: 359px) {
+  .reviews-panel {
+    padding: 1.25rem;
+  }
+
+  .card {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .hero__cta-group .btn--wrap {
+    font-size: var(--text-xs);
+    padding-inline: 1rem;
+  }
+}
+
+/* ========== LANDSCAPE MOBILE ========== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding-top: calc(var(--header-height) + 1.5rem);
+    padding-bottom: 2rem;
+  }
+
+  .hero__inner {
+    gap: 1.5rem;
+  }
+}
+
+/* ========== TABLET (640px+) ========== */
+@media (min-width: 640px) {
+  .trust-bar__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hero__cta-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .hero__cta-group .btn {
+    width: auto;
+  }
+
+  .specialties-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cta-final__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .cta-final__actions .btn {
+    width: auto;
+    max-width: none;
+  }
+
+  .footer__inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .footer__legal {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ========== TABLET LARGE (768px+) ========== */
+@media (min-width: 768px) {
+  .header__cta {
+    display: inline-flex;
+  }
+}
+
+/* ========== DESKTOP (1024px+) ========== */
+@media (min-width: 1024px) {
+  .header__nav {
+    display: block;
+  }
+
+  .header__toggle {
+    display: none;
+  }
+
+  .header__logo-img {
+    height: 3.25rem;
+    max-width: 11rem;
+  }
+
+  .header__brand {
+    max-width: none;
+    font-size: 0.9375rem;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+  }
+
+  .specialties-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .reviews-scroll {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  .review-card {
+    min-width: auto;
+    max-width: none;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .footer__inner {
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+  }
+
+  .footer__legal {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ========== LARGE DESKTOP (1280px+) ========== */
+@media (min-width: 1280px) {
+  .hero__inner {
+    gap: 5rem;
+  }
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  .review-card:hover,
+  .stat-card:hover,
+  .process-step:hover,
+  .btn:hover,
+  .float-cta__btn:hover {
+    transform: none;
+  }
+
+  .header__nav--open {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero::before {
+    animation: none;
+  }
+
+  .header {
+    transform: none;
+  }
+
+  .faq-item__answer {
+    transition: none;
+  }
+}

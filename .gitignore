@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+node_modules/
+package-lock.json
+reviews-data.json
+reviews-raw.json
+reviews-parsed.json
+*-temp.html
+maps-*.html
+buscoabogado.html
+google-search.html
+ddg.html
