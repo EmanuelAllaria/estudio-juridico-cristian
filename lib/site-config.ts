@@ -53,8 +53,6 @@ export interface SiteConfig {
   googleMapsUrl: string;
   domain: string;
   googlePlaceId: string;
-  googleRating: number;
-  reviewCount: number;
   trustBadges: TrustBadge[];
   specialties: Specialty[];
   reviews: Review[];
@@ -76,8 +74,6 @@ export const SITE_CONFIG: SiteConfig = {
     "https://www.google.com/maps/place/Abogados+Laborales+%26+Asoc./@-34.6020072,-58.3907044,17z/data=!3m1!4b1!4m6!3m5!1s0x95bccba0ab8466f9:0x9198d8f008c1f834!8m2!3d-34.6020072!4d-58.3907044!16s%2Fg%2F11cn3vx9hq",
   domain: "https://www.aboglaborales.com.ar",
   googlePlaceId: "ChIJ-WaEq6DLvJURNPjBCPDYmJE",
-  googleRating: 5,
-  reviewCount: 171,
 
   trustBadges: [
     { icon: "shield", text: "Sin adelantos ni gastos previos" },
@@ -251,9 +247,9 @@ export const SEO = {
   description:
     "Abogados laborales en CABA. Especialistas en despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo por WhatsApp 11-4673-4420, 24 horas. 5 estrellas en Google.",
   ogDescription:
-    "Abogados laborales en CABA. Despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo: 11-4673-4420. 5 estrellas en Google con 171 reseñas.",
+    "Abogados laborales en CABA. Despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo: 11-4673-4420. 5 estrellas en Google.",
   twitterDescription:
-    "Abogados laborales en CABA. Consulta sin cargo por WhatsApp 11-4673-4420. 5★ en Google (171 reseñas).",
+    "Abogados laborales en CABA. Consulta sin cargo por WhatsApp 11-4673-4420. 5 estrellas en Google.",
   ogImageAlt:
     "Abogados Laborales — Defendemos tus derechos laborales sin adelantos",
   googleAdsId: "AW-996950383",

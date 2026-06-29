@@ -1,15 +1,14 @@
+"use client";
+
 import { WhatsAppIcon } from "@/components/ui/Icon";
+import { useGoogleReviews } from "@/components/GoogleReviewsProvider";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { formatRating } from "@/lib/stars";
 import { getWhatsAppUrl } from "@/lib/urls";
 
-interface WhyUsProps {
-  rating: number;
-  reviewCount: number;
-}
-
-export function WhyUs({ rating, reviewCount }: WhyUsProps) {
-  const ratingText = formatRating(rating);
+export function WhyUs() {
+  const { data } = useGoogleReviews();
+  const ratingText = formatRating(data.rating);
 
   return (
     <section className="section section--slate" aria-labelledby="porque-title">
@@ -28,26 +27,26 @@ export function WhyUs({ rating, reviewCount }: WhyUsProps) {
 
             <ul className="why-list" id="why-list">
               {SITE_CONFIG.whyReasons.map((item) => (
-                  <li key={item.text} className="why-list__item">
-                    <span className="why-list__icon" aria-hidden="true">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    </span>
-                    <span
-                      className="why-list__text"
-                      dangerouslySetInnerHTML={{ __html: item.text }}
-                    />
-                  </li>
+                <li key={item.text} className="why-list__item">
+                  <span className="why-list__icon" aria-hidden="true">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </span>
+                  <span
+                    className="why-list__text"
+                    dangerouslySetInnerHTML={{ __html: item.text }}
+                  />
+                </li>
               ))}
             </ul>
 
@@ -69,7 +68,7 @@ export function WhyUs({ rating, reviewCount }: WhyUsProps) {
               <span className="stat-card__label">Estrellas en Google</span>
             </div>
             <div className="stat-card">
-              <span className="stat-card__number">{reviewCount}</span>
+              <span className="stat-card__number">{data.reviewCount}</span>
               <span className="stat-card__label">Opiniones verificadas</span>
             </div>
             <div className="stat-card">

@@ -20,7 +20,7 @@ var SITE_CONFIG = {
   /** Proxy PHP en el hosting — recomendado para datos en vivo sin exponer la key. */
   placesApiProxy: "/api/google-reviews.php",
   googleRating: 5,
-  reviewCount: 171,
+  reviewCount: 174,
 
   trustBadges: [
     {

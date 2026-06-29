@@ -1,10 +1,15 @@
 import type { SiteConfig } from "./site-config";
 
+export type PageConfig = SiteConfig & {
+  googleRating: number;
+  reviewCount: number;
+};
+
 export function stripHtml(text: string): string {
   return text.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 }
 
-export function buildSchema(config: SiteConfig) {
+export function buildSchema(config: PageConfig) {
   const legalServiceId = `${config.domain}/#legal-service`;
   const websiteId = `${config.domain}/#website`;
   const faqId = `${config.domain}/#faq`;

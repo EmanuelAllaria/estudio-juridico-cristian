@@ -1,14 +1,13 @@
+"use client";
+
 import { PhoneIcon, WhatsAppIcon } from "@/components/ui/Icon";
+import { useGoogleReviews } from "@/components/GoogleReviewsProvider";
 import { formatRating, renderStars } from "@/lib/stars";
 import { getPhoneUrl, getWhatsAppUrl } from "@/lib/urls";
 
-interface HeroProps {
-  rating: number;
-  reviewCount: number;
-}
-
-export function Hero({ rating, reviewCount }: HeroProps) {
-  const ratingText = formatRating(rating);
+export function Hero() {
+  const { data } = useGoogleReviews();
+  const ratingText = formatRating(data.rating);
 
   return (
     <section id="inicio" className="hero section" aria-labelledby="hero-title">
@@ -53,10 +52,11 @@ export function Hero({ rating, reviewCount }: HeroProps) {
             id="hero-rating"
           >
             <div className="stars" aria-hidden="true">
-              <span className="stars__icon">{renderStars(rating)}</span>
+              <span className="stars__icon">{renderStars(data.rating)}</span>
             </div>
             <span className="hero__rating-text" id="hero-rating-text">
-              <strong>{ratingText}</strong> · {reviewCount} reseñas en Google
+              <strong>{ratingText}</strong> · {data.reviewCount} reseñas en
+              Google
             </span>
           </div>
         </div>

@@ -61,20 +61,24 @@ export function normalizeReview(review: Record<string, unknown>): Review {
 }
 
 export function normalizePayload(
-  data: Record<string, unknown>,
-  fallbackRating = 5,
-  fallbackCount = 171
-): GoogleReviewsPayload {
+  data: Record<string, unknown>
+): GoogleReviewsPayload | null {
   const reviews = ((data.reviews as Record<string, unknown>[]) || [])
     .map(normalizeReview)
     .filter((r) => r.text);
 
+  const rating = data.rating as number | undefined;
+  const reviewCount =
+    (data.userRatingCount as number | undefined) ??
+    (data.reviewCount as number | undefined);
+
+  if (rating == null || reviewCount == null) {
+    return null;
+  }
+
   return {
-    rating: (data.rating as number) ?? fallbackRating,
-    reviewCount:
-      (data.userRatingCount as number) ??
-      (data.reviewCount as number) ??
-      fallbackCount,
+    rating,
+    reviewCount,
     reviews,
     source: (data.source as string) || "google",
     fetchedAt: (data.fetchedAt as string) || new Date().toISOString(),

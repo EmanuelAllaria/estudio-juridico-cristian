@@ -1,63 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useGoogleReviews } from "@/components/GoogleReviewsProvider";
 import { revealReviewCards } from "@/components/ScrollReveal";
 import { GoogleIcon } from "@/components/ui/Icon";
 import { ReviewCard } from "@/components/ui/ReviewCard";
 import { Stars } from "@/components/ui/Stars";
-import type { Review } from "@/lib/site-config";
 import { SITE_CONFIG } from "@/lib/site-config";
-import { formatRating, type GoogleReviewsPayload } from "@/lib/stars";
+import { formatRating } from "@/lib/stars";
 
-interface ReviewsProps {
-  initialData: GoogleReviewsPayload;
-}
-
-export function Reviews({ initialData }: ReviewsProps) {
-  const [data, setData] = useState(initialData);
-  const [isLive, setIsLive] = useState(
-    initialData.source !== "static" && initialData.source !== undefined
-  );
+export function Reviews() {
+  const { data, isLive } = useGoogleReviews();
+  const ratingText = formatRating(data.rating);
 
   useEffect(() => {
-    let cancelled = false;
-
-    async function fetchLive() {
-      try {
-        const res = await fetch("/api/google-reviews", { cache: "no-store" });
-        if (!res.ok) return;
-        const payload: GoogleReviewsPayload = await res.json();
-        if (cancelled || payload.source === "static") return;
-
-        setData(payload);
-        setIsLive(true);
-
-        const ratingText = formatRating(payload.rating);
-        const heroRatingText = document.getElementById("hero-rating-text");
-        if (heroRatingText) {
-          heroRatingText.innerHTML = `<strong>${ratingText}</strong> · ${payload.reviewCount} reseñas en Google`;
-        }
-
-        const statNumbers = document.querySelectorAll(
-          ".why-grid__stats .stat-card__number"
-        );
-        if (statNumbers[0]) statNumbers[0].textContent = ratingText;
-        if (statNumbers[1])
-          statNumbers[1].textContent = String(payload.reviewCount);
-
-        requestAnimationFrame(() => revealReviewCards());
-      } catch {
-        // Mantener datos iniciales del servidor
-      }
+    if (isLive) {
+      requestAnimationFrame(() => revealReviewCards());
     }
-
-    if (!isLive) fetchLive();
-    return () => {
-      cancelled = true;
-    };
-  }, [isLive]);
-
-  const ratingText = formatRating(data.rating);
+  }, [data.reviews, isLive]);
 
   return (
     <section
@@ -107,8 +67,11 @@ export function Reviews({ initialData }: ReviewsProps) {
           )}
 
           <div className="reviews-scroll" id="reviews-container" role="list">
-            {data.reviews.map((review: Review) => (
-              <ReviewCard key={`${review.name}-${review.date}`} review={review} />
+            {data.reviews.map((review) => (
+              <ReviewCard
+                key={`${review.name}-${review.date}`}
+                review={review}
+              />
             ))}
           </div>
         </div>

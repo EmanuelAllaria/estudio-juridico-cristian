@@ -1,7 +1,7 @@
-import type { SiteConfig } from "@/lib/site-config";
+import type { PageConfig } from "@/lib/schema";
 import { buildSchema } from "@/lib/schema";
 
-export function JsonLd({ config }: { config: SiteConfig }) {
+export function JsonLd({ config }: { config: PageConfig }) {
   const schema = buildSchema(config);
 
   return (

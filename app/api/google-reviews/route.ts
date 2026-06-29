@@ -12,7 +12,8 @@ export async function GET() {
       },
     });
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Error desconocido";
-    return NextResponse.json({ error: message }, { status: 502 });
+    const message =
+      error instanceof Error ? error.message : "Error desconocido";
+    return NextResponse.json({ error: message }, { status: 503 });
   }
 }
