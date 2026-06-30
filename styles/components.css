@@ -24,7 +24,30 @@
 .btn--wrap {
   white-space: normal;
   text-align: center;
-  line-height: 1.3;
+  line-height: 1.35;
+}
+
+.btn__label {
+  display: inline;
+  text-align: center;
+}
+
+.btn__label-short {
+  display: none;
+}
+
+.btn--whatsapp.btn--wrap,
+.btn--whatsapp.btn--lg-mobile {
+  padding: 0.875rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.35;
+  gap: 0.625rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.32);
+}
+
+.btn--lg-mobile {
+  min-height: 52px;
 }
 
 .btn:active {

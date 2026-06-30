@@ -1,5 +1,6 @@
-import { PhoneIcon, WhatsAppIcon } from "@/components/ui/Icon";
-import { getPhoneUrl, getWhatsAppUrl } from "@/lib/urls";
+import { PhoneIcon } from "@/components/ui/Icon";
+import { WhatsAppCtaLink } from "@/components/ui/WhatsAppCtaLink";
+import { getPhoneUrl } from "@/lib/urls";
 
 export function CtaFinal() {
   return (
@@ -16,16 +17,11 @@ export function CtaFinal() {
           en minutos por WhatsApp.
         </p>
         <div className="cta-final__actions">
-          <a
-            href={getWhatsAppUrl()}
-            className="btn btn--whatsapp btn--lg"
-            data-track="cta-footer-wa"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <WhatsAppIcon size={22} />
-            Iniciar Consulta Gratuita por WhatsApp
-          </a>
+          <WhatsAppCtaLink
+            className="btn btn--whatsapp btn--lg btn--wrap"
+            track="cta-footer-wa"
+            iconSize={22}
+          />
           <a
             href={getPhoneUrl()}
             className="btn btn--ghost btn--lg"

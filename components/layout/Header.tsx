@@ -3,8 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
-import { WhatsAppIcon } from "@/components/ui/Icon";
-import { getWhatsAppUrl } from "@/lib/urls";
+import { WhatsAppCtaLink } from "@/components/ui/WhatsAppCtaLink";
+
+const NAV_LINKS = [
+  { href: "#servicios", label: "Servicios" },
+  { href: "#resenas", label: "Opiniones" },
+  { href: "#proceso", label: "Cómo funciona" },
+  { href: "#faq", label: "Preguntas Frecuentes" },
+] as const;
 
 export function Header() {
   const [navOpen, setNavOpen] = useState(false);
@@ -53,12 +59,16 @@ export function Header() {
   };
 
   return (
-    <header className="header" id="header">
+    <header
+      className={`header${navOpen ? " header--menu-open" : ""}`}
+      id="header"
+    >
       <div className="container header__inner">
         <Link
           href="#inicio"
           className="header__logo"
           aria-label="Abogados Laborales & Asoc. — Inicio"
+          onClick={closeNav}
         >
           <Image
             src="/images/logo.svg"
@@ -71,66 +81,34 @@ export function Header() {
         </Link>
 
         <nav
-          className={`header__nav${navOpen ? " header__nav--open" : ""}`}
+          className="header__nav header__nav--desktop"
           id="main-nav"
           aria-label="Navegación principal"
         >
           <ul className="header__nav-list">
-            <li>
-              <a
-                href="#servicios"
-                className="header__nav-link"
-                onClick={closeNav}
-              >
-                Servicios
-              </a>
-            </li>
-            <li>
-              <a
-                href="#resenas"
-                className="header__nav-link"
-                onClick={closeNav}
-              >
-                Opiniones
-              </a>
-            </li>
-            <li>
-              <a
-                href="#proceso"
-                className="header__nav-link"
-                onClick={closeNav}
-              >
-                Cómo funciona
-              </a>
-            </li>
-            <li>
-              <a href="#faq" className="header__nav-link" onClick={closeNav}>
-                Preguntas Frecuentes
-              </a>
-            </li>
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="header__nav-link">
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
 
         <div className="header__actions">
-          <a
-            href={getWhatsAppUrl()}
-            className="btn btn--whatsapp btn--sm btn--pulse header__cta"
-            data-track="cta-header-wa"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <WhatsAppIcon />
-            <span className="header__cta-text">
-              Iniciar Consulta Gratuita por WhatsApp
-            </span>
-          </a>
+          <WhatsAppCtaLink
+            className="btn btn--whatsapp btn--sm header__cta"
+            track="cta-header-wa"
+            pulse
+          />
 
           <button
             type="button"
             className="header__toggle"
             id="nav-toggle"
             aria-expanded={navOpen}
-            aria-controls="main-nav"
+            aria-controls="mobile-nav"
             aria-label={navOpen ? "Cerrar menú" : "Abrir menú"}
             onClick={toggleNav}
           >
@@ -139,6 +117,35 @@ export function Header() {
             <span className="header__toggle-bar" />
           </button>
         </div>
+      </div>
+
+      <div
+        className={`header__mobile-menu${navOpen ? " is-open" : ""}`}
+        id="mobile-nav"
+        aria-hidden={!navOpen}
+      >
+        <nav aria-label="Menú móvil">
+          <ul className="header__mobile-list">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="header__mobile-link"
+                  onClick={closeNav}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <WhatsAppCtaLink
+          className="btn btn--whatsapp btn--wrap header__mobile-wa"
+          track="cta-mobile-menu-wa"
+          iconSize={22}
+          pulse
+        />
       </div>
     </header>
   );

@@ -1,10 +1,11 @@
 "use client";
 
 import { GoogleBadge } from "@/components/ui/GoogleBadge";
-import { PhoneIcon, WhatsAppIcon } from "@/components/ui/Icon";
+import { PhoneIcon } from "@/components/ui/Icon";
+import { WhatsAppCtaLink } from "@/components/ui/WhatsAppCtaLink";
 import { useGoogleReviews } from "@/components/GoogleReviewsProvider";
 import { SITE_CONFIG } from "@/lib/site-config";
-import { getPhoneUrl, getWhatsAppUrl } from "@/lib/urls";
+import { getPhoneUrl } from "@/lib/urls";
 
 export function Hero() {
   const { data } = useGoogleReviews();
@@ -23,16 +24,11 @@ export function Hero() {
           </p>
 
           <div className="hero__cta-group reveal reveal--left">
-            <a
-              href={getWhatsAppUrl()}
-              className="btn btn--whatsapp btn--wrap btn--pulse"
-              data-track="cta-hero-whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <WhatsAppIcon />
-              Iniciar Consulta Gratuita por WhatsApp
-            </a>
+            <WhatsAppCtaLink
+              className="btn btn--whatsapp btn--wrap btn--lg-mobile"
+              track="cta-hero-whatsapp"
+              pulse
+            />
             <a
               href={getPhoneUrl()}
               className="btn btn--outline btn--wrap"
