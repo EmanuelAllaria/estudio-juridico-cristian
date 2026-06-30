@@ -16,6 +16,8 @@ const NAV_LINKS = [
 export function Header() {
   const [navOpen, setNavOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [entered, setEntered] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const closeNav = useCallback(() => {
     setNavOpen(false);
@@ -24,23 +26,24 @@ export function Header() {
 
   useEffect(() => {
     setMounted(true);
+    const frame = requestAnimationFrame(() => setEntered(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
-    const header = document.getElementById("header");
-    if (!header) return;
-
     let ticking = false;
+
     const onScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          header.classList.toggle("header--scrolled", window.scrollY > 10);
+          setScrolled(window.scrollY > 10);
           ticking = false;
         });
         ticking = true;
       }
     };
 
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -63,6 +66,15 @@ export function Header() {
       return next;
     });
   };
+
+  const headerClassName = [
+    "header",
+    entered && "header--entered",
+    scrolled && "header--scrolled",
+    navOpen && "header--menu-open",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   const mobileMenu =
     mounted && navOpen
@@ -103,10 +115,7 @@ export function Header() {
 
   return (
     <>
-      <header
-        className={`header${navOpen ? " header--menu-open" : ""}`}
-        id="header"
-      >
+      <header className={headerClassName} id="header">
         <div className="container header__inner">
           <Link
             href="#inicio"

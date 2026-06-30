@@ -126,15 +126,6 @@ function initHero() {
   });
 }
 
-function initHeaderEntrance() {
-  const header = document.getElementById("header");
-  if (!header) return;
-
-  requestAnimationFrame(() => {
-    header.classList.add("header--entered");
-  });
-}
-
 function initScrollReveal() {
   markRevealTargets();
 
@@ -184,7 +175,6 @@ export function ScrollReveal() {
     if (initialized.current) return;
     initialized.current = true;
 
-    initHeaderEntrance();
     initHero();
     initScrollReveal();
   }, []);

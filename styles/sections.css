@@ -18,7 +18,8 @@
     box-shadow var(--transition-base);
 }
 
-.header--entered {
+.header--entered,
+.header--menu-open {
   opacity: 1;
 }
 
