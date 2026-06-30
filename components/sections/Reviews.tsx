@@ -41,7 +41,7 @@ export function Reviews() {
             <div className="reviews-panel__google">
               <GoogleIcon className="reviews-panel__google-icon" size={36} />
               <div>
-                <p className="reviews-panel__label">Google Reviews</p>
+                <p className="reviews-panel__label">Reseñas en Google</p>
                 <div className="reviews-panel__score" id="reviews-score">
                   <Stars rating={data.rating} size="lg" />
                   <span className="reviews-panel__rating">

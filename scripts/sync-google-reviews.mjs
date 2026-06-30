@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { localizeReviewsPayload } from "./lib/localize-reviews.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -87,8 +88,8 @@ async function fetchFromPlacesApiLegacy(apiKey) {
     place_id: PLACE_ID,
     fields: "rating,user_ratings_total,reviews",
     key: apiKey,
-    language: "es",
-    reviews_no_translations: "true",
+    language: "es-419",
+    region: "ar",
   });
 
   const res = await fetch(
@@ -132,7 +133,7 @@ async function fetchFromPlacesApi(apiKey) {
         "Content-Type": "application/json",
         "X-Goog-Api-Key": apiKey,
         "X-Goog-FieldMask": "rating,userRatingCount,reviews",
-        "X-Goog-LanguageCode": "es",
+        "X-Goog-LanguageCode": "es-419",
       },
     }
   );
@@ -282,6 +283,8 @@ async function main() {
     );
     process.exit(1);
   }
+
+  payload = localizeReviewsPayload(payload);
 
   for (const outPath of OUT_PATHS) {
     mkdirSync(dirname(outPath), { recursive: true });

@@ -4,40 +4,40 @@
   "reviews": [
     {
       "name": "Robert Soria",
-      "text": "I had an excellent experience with Germán. I contacted him for a legal consultation, and he got back to me quickly. During our conversation, he was very clear, direct, and professional, calmly explaining all the options and possible outcomes of the case.\n\nI especially want to highlight his honesty and the straightforward way he guided me. I am very grateful for his help and highly recommend him.",
       "rating": 5,
-      "date": "4 months ago",
+      "text": "Tuve una excelente experiencia con Germán. Me contacté para realizar una consulta legal y rápidamente se comunicó conmigo. Durante la conversación fue muy claro, directo y profesional, explicándome con tranquilidad todas las opciones y posibles resultados del caso. Destaco especialmente su honestidad y la manera sencilla en la que pudo orientarme. Estoy muy agradecido por su ayuda y lo recomiendo totalmente.",
+      "date": "Hace 4 meses",
       "initials": "RS"
     },
     {
       "name": "Leila Hernandez",
-      "text": "The service is EXCELLENT! I had a work-related issue and they advised me quickly, very professional and committed to my situation. I recommend them 100%. They are super reliable and resolve issues by defending what is rightfully yours. They're awesome! 🙌🏼",
       "rating": 5,
-      "date": "a month ago",
+      "text": "La atención es EXCELENTE! Tuve un problema laboral y me asesoraron rápidamente, muy serio y comprometido con mi situación. Recomiendo 100%, son súper confiables y resuelven defendiendo lo que te corresponde.",
+      "date": "Hace un mes",
       "initials": "LH"
     },
     {
-      "name": "Elsa Guitian",
-      "text": "I highly recommend Dr. Germán Carnevalle, a labor lawyer. He has a clear understanding of labor law. He always responded immediately by phone and video call. He assists with drafting responses to telegrams. I verified that the \"24-hour service\" is completely genuine. He provided me with all his support free of charge and with great professionalism. Thank you so much, Dr.!",
+      "name": "Mariana Di Salvio",
       "rating": 5,
-      "date": "4 months ago",
+      "text": "Me contacté con el estudio y me respondieron de inmediato. Me brindaron un excelente asesoramiento. ¡Los recomiendo totalmente!",
+      "date": "Hace una semana",
+      "initials": "MS"
+    },
+    {
+      "name": "Elsa Guitian",
+      "rating": 5,
+      "text": "Súper recomendable el Dr. Germán Carnevalle, abogado laboral. Tiene un conocimiento claro en derecho del trabajo. Siempre respondió de inmediato por teléfono y videollamada. Comprobé que la atención 24 horas es totalmente real. Me brindó todo su apoyo de forma gratuita y con gran profesionalismo.",
+      "date": "Hace 4 meses",
       "initials": "EG"
     },
     {
       "name": "Silvina Mata",
-      "text": "Excellent team of lawyers!\nThey respond promptly.\nThey are very helpful to their clients.",
       "rating": 5,
-      "date": "4 months ago",
+      "text": "Excelente equipo de abogados. Sus respuestas son inmediatas. Buena predisposición para sus clientes.",
+      "date": "Hace 4 meses",
       "initials": "SM"
-    },
-    {
-      "name": "Chuma Agostini",
-      "text": "Excellent service and incredibly fast; if the call drops, they call you back. Thank you so much!",
-      "rating": 5,
-      "date": "5 months ago",
-      "initials": "CA"
     }
   ],
   "source": "places-api",
-  "fetchedAt": "2026-06-29T22:47:17.048Z"
+  "fetchedAt": "2026-06-30T21:04:12.939Z"
 }

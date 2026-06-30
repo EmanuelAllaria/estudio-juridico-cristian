@@ -175,6 +175,13 @@ export const SITE_CONFIG: SiteConfig = {
       initials: "LH",
     },
     {
+      name: "Mariana Di Salvio",
+      rating: 5,
+      text: "Me contacté con el estudio y me respondieron de inmediato. Me brindaron un excelente asesoramiento. ¡Los recomiendo totalmente!",
+      date: "Hace una semana",
+      initials: "MS",
+    },
+    {
       name: "Elsa Guitian",
       rating: 5,
       text: "Súper recomendable el Dr. Germán Carnevalle, abogado laboral. Tiene un conocimiento claro en derecho del trabajo. Siempre respondió de inmediato por teléfono y videollamada. Comprobé que la atención 24 horas es totalmente real. Me brindó todo su apoyo de forma gratuita y con gran profesionalismo.",

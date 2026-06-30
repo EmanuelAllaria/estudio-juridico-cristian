@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir } from "fs/promises";
 import path from "path";
+import { localizeReviewsPayload } from "./localize-reviews";
 import { SITE_CONFIG, type Review, type SiteConfig } from "./site-config";
 import type { PageConfig } from "./schema";
 import {
@@ -17,13 +18,10 @@ export function isGoogleSource(source?: string): boolean {
   );
 }
 
-function mergeReviewTexts(payload: GoogleReviewsPayload): GoogleReviewsPayload {
-  if (payload.reviews.length > 0) return payload;
-
-  return {
-    ...payload,
-    reviews: SITE_CONFIG.reviews,
-  };
+function applyLocalization(
+  payload: GoogleReviewsPayload
+): GoogleReviewsPayload {
+  return localizeReviewsPayload(payload, SITE_CONFIG.reviews);
 }
 
 async function saveCache(payload: GoogleReviewsPayload): Promise<void> {
@@ -44,8 +42,8 @@ export async function fetchFromPlacesApiLegacy(): Promise<GoogleReviewsPayload |
     place_id: placeId,
     fields: "rating,user_ratings_total,reviews",
     key: apiKey,
-    language: "es",
-    reviews_no_translations: "true",
+    language: "es-419",
+    region: "ar",
   });
 
   const res = await fetch(
@@ -78,9 +76,9 @@ export async function fetchFromPlacesApiLegacy(): Promise<GoogleReviewsPayload |
 
   if (!payload) return null;
 
-  const merged = mergeReviewTexts(payload);
-  await saveCache(merged);
-  return merged;
+  const localized = applyLocalization(payload);
+  await saveCache(localized);
+  return localized;
 }
 
 export async function fetchFromPlacesApi(): Promise<GoogleReviewsPayload | null> {
@@ -94,7 +92,7 @@ export async function fetchFromPlacesApi(): Promise<GoogleReviewsPayload | null>
       "Content-Type": "application/json",
       "X-Goog-Api-Key": apiKey,
       "X-Goog-FieldMask": "rating,userRatingCount,reviews",
-      "X-Goog-LanguageCode": "es",
+      "X-Goog-LanguageCode": "es-419",
     },
     cache: "no-store",
   });
@@ -114,9 +112,9 @@ export async function fetchFromPlacesApi(): Promise<GoogleReviewsPayload | null>
 
   if (!payload) return null;
 
-  const merged = mergeReviewTexts(payload);
-  await saveCache(merged);
-  return merged;
+  const localized = applyLocalization(payload);
+  await saveCache(localized);
+  return localized;
 }
 
 export async function fetchFromJsonCache(): Promise<GoogleReviewsPayload | null> {
@@ -125,7 +123,7 @@ export async function fetchFromJsonCache(): Promise<GoogleReviewsPayload | null>
     const data = JSON.parse(raw);
     const payload = normalizePayload(data);
     if (!payload || !isGoogleSource(payload.source)) return null;
-    return mergeReviewTexts(payload);
+    return applyLocalization(payload);
   } catch {
     return null;
   }
