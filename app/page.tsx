@@ -19,6 +19,7 @@ import {
 } from "@/lib/google-reviews";
 import { SEO } from "@/lib/site-config";
 import { formatRating } from "@/lib/stars";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const revalidate = 3600;
 
@@ -44,6 +45,7 @@ export default async function HomePage() {
 
   return (
     <GoogleReviewsProvider initialData={reviewsData}>
+      <SpeedInsights />
       <JsonLd config={pageConfig} />
       <Header />
       <main>
