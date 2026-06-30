@@ -105,10 +105,6 @@
     display: block;
   }
 
-  .header__mobile-menu {
-    display: none !important;
-  }
-
   .header__toggle {
     display: none;
   }
@@ -185,7 +181,7 @@
     animation: none;
   }
 
-  .header__mobile-menu.is-open {
+  .mobile-menu {
     animation: none;
   }
 
@@ -200,7 +196,7 @@
   }
 
   .header {
-    transform: none;
+    opacity: 1;
   }
 
   .faq-item__answer {

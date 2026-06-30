@@ -60,6 +60,7 @@
 
   /* Z-index */
   --z-header: 100;
-  --z-float: 200;
   --z-overlay: 150;
+  --z-float: 200;
+  --z-mobile-menu: 150;
 }

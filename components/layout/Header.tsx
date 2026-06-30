@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { WhatsAppCtaLink } from "@/components/ui/WhatsAppCtaLink";
 
 const NAV_LINKS = [
@@ -14,10 +15,15 @@ const NAV_LINKS = [
 
 export function Header() {
   const [navOpen, setNavOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const closeNav = useCallback(() => {
     setNavOpen(false);
     document.body.style.overflow = "";
+  }, []);
+
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
   useEffect(() => {
@@ -58,95 +64,107 @@ export function Header() {
     });
   };
 
-  return (
-    <header
-      className={`header${navOpen ? " header--menu-open" : ""}`}
-      id="header"
-    >
-      <div className="container header__inner">
-        <Link
-          href="#inicio"
-          className="header__logo"
-          aria-label="Abogados Laborales & Asoc. — Inicio"
-          onClick={closeNav}
-        >
-          <Image
-            src="/images/logo.svg"
-            alt="Abogados Laborales"
-            className="header__logo-img"
-            width={200}
-            height={44}
-            priority
-          />
-        </Link>
-
-        <nav
-          className="header__nav header__nav--desktop"
-          id="main-nav"
-          aria-label="Navegación principal"
-        >
-          <ul className="header__nav-list">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className="header__nav-link">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="header__actions">
-          <WhatsAppCtaLink
-            className="btn btn--whatsapp btn--sm header__cta"
-            track="cta-header-wa"
-            pulse
-          />
-
-          <button
-            type="button"
-            className="header__toggle"
-            id="nav-toggle"
-            aria-expanded={navOpen}
-            aria-controls="mobile-nav"
-            aria-label={navOpen ? "Cerrar menú" : "Abrir menú"}
-            onClick={toggleNav}
+  const mobileMenu =
+    mounted && navOpen
+      ? createPortal(
+          <div
+            className="mobile-menu"
+            id="mobile-nav"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menú de navegación"
           >
-            <span className="header__toggle-bar" />
-            <span className="header__toggle-bar" />
-            <span className="header__toggle-bar" />
-          </button>
-        </div>
-      </div>
+            <nav aria-label="Menú móvil">
+              <ul className="mobile-menu__list">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="mobile-menu__link"
+                      onClick={closeNav}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-      <div
-        className={`header__mobile-menu${navOpen ? " is-open" : ""}`}
-        id="mobile-nav"
-        aria-hidden={!navOpen}
+            <WhatsAppCtaLink
+              className="btn btn--whatsapp btn--wrap mobile-menu__wa"
+              track="cta-mobile-menu-wa"
+              iconSize={22}
+              pulse
+            />
+          </div>,
+          document.body
+        )
+      : null;
+
+  return (
+    <>
+      <header
+        className={`header${navOpen ? " header--menu-open" : ""}`}
+        id="header"
       >
-        <nav aria-label="Menú móvil">
-          <ul className="header__mobile-list">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="header__mobile-link"
-                  onClick={closeNav}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="container header__inner">
+          <Link
+            href="#inicio"
+            className="header__logo"
+            aria-label="Abogados Laborales & Asoc. — Inicio"
+            onClick={closeNav}
+          >
+            <Image
+              src="/images/logo.svg"
+              alt="Abogados Laborales"
+              className="header__logo-img"
+              width={200}
+              height={44}
+              priority
+            />
+          </Link>
 
-        <WhatsAppCtaLink
-          className="btn btn--whatsapp btn--wrap header__mobile-wa"
-          track="cta-mobile-menu-wa"
-          iconSize={22}
-          pulse
-        />
-      </div>
-    </header>
+          <nav
+            className="header__nav header__nav--desktop"
+            id="main-nav"
+            aria-label="Navegación principal"
+          >
+            <ul className="header__nav-list">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="header__nav-link">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="header__actions">
+            <WhatsAppCtaLink
+              className="btn btn--whatsapp btn--sm header__cta"
+              track="cta-header-wa"
+              pulse
+            />
+
+            <button
+              type="button"
+              className="header__toggle"
+              id="nav-toggle"
+              aria-expanded={navOpen}
+              aria-controls="mobile-nav"
+              aria-label={navOpen ? "Cerrar menú" : "Abrir menú"}
+              onClick={toggleNav}
+            >
+              <span className="header__toggle-bar" />
+              <span className="header__toggle-bar" />
+              <span className="header__toggle-bar" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {mobileMenu}
+    </>
   );
 }
