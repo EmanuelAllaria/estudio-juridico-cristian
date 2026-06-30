@@ -1,5 +1,5 @@
 :root {
-  /* Paleta premium legal */
+  /* Paleta */
   --color-navy-900: #0c1222;
   --color-navy-800: #151d32;
   --color-navy-700: #1e2a45;
@@ -8,10 +8,13 @@
   --color-slate-200: #e2e8f0;
   --color-slate-100: #f1f5f9;
   --color-slate-50: #f8fafc;
+  --color-warm-50: #f7f5f2;
+  --color-warm-100: #efeae4;
   --color-surface: #ffffff;
   --color-accent: #c8102e;
   --color-accent-hover: #a50d26;
-  --color-accent-light: rgba(200, 16, 46, 0.1);
+  --color-accent-light: rgba(200, 16, 46, 0.08);
+  --color-accent-soft: rgba(200, 16, 46, 0.14);
   --color-whatsapp: #25d366;
   --color-whatsapp-hover: #1fb855;
   --color-star: #fbbc04;
@@ -25,15 +28,16 @@
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
+  --radius-2xl: 1.25rem;
   --radius-full: 9999px;
   --shadow-soft: 0 4px 24px rgba(12, 18, 34, 0.06);
-  --shadow-card: 0 1px 3px rgba(12, 18, 34, 0.04), 0 8px 24px rgba(12, 18, 34, 0.06);
-  --shadow-elevated: 0 8px 32px rgba(12, 18, 34, 0.1);
+  --shadow-card: 0 2px 8px rgba(12, 18, 34, 0.04), 0 12px 32px rgba(12, 18, 34, 0.07);
+  --shadow-elevated: 0 16px 40px rgba(12, 18, 34, 0.12);
   --shadow-header: 0 1px 0 rgba(12, 18, 34, 0.06), 0 4px 16px rgba(12, 18, 34, 0.04);
+  --shadow-photo: 0 20px 50px rgba(12, 18, 34, 0.18);
 
-  /* Espaciado generoso */
-  --space-section: clamp(4rem, 8vw, 7rem);
+  /* Espaciado */
+  --space-section: clamp(3.5rem, 7vw, 6.5rem);
   --space-container: clamp(1.25rem, 4vw, 2rem);
   --max-width: 72rem;
   --header-height: 4.5rem;
@@ -46,15 +50,16 @@
   --duration-hero: 700ms;
   --stagger-step: 80ms;
 
-  /* Tipografía */
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --text-hero: clamp(2rem, 5vw, 3.25rem);
-  --text-h2: clamp(1.625rem, 3.5vw, 2.25rem);
+  /* Tipografía — solo Inter */
+  --font-sans: var(--font-inter, "Inter"), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: var(--font-sans);
+  --text-hero: clamp(2.125rem, 5.5vw, 3.5rem);
+  --text-h2: clamp(1.625rem, 3.5vw, 2.125rem);
   --text-h3: clamp(1.125rem, 2vw, 1.375rem);
   --text-body: 1rem;
   --text-sm: 0.875rem;
   --text-xs: 0.75rem;
-  --leading-tight: 1.15;
+  --leading-tight: 1.12;
   --leading-normal: 1.6;
   --leading-relaxed: 1.75;
 

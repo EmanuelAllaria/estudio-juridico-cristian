@@ -1,9 +1,18 @@
 import type { Review } from "@/lib/site-config";
 import { Stars } from "./Stars";
 
-export function ReviewCard({ review }: { review: Review }) {
+export function ReviewCard({
+  review,
+  featured = false,
+}: {
+  review: Review;
+  featured?: boolean;
+}) {
   return (
-    <article className="review-card" role="listitem">
+    <article
+      className={`review-card${featured ? " review-card--featured" : ""}`}
+      role="listitem"
+    >
       <div className="review-card__header">
         <div className="avatar" aria-hidden="true">
           {review.initials}

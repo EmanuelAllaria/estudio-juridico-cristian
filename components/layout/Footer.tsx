@@ -56,7 +56,7 @@ export function Footer() {
         </div>
 
         <div className="footer__legal">
-          <p>&copy; {year} Typing Timing. Todos los derechos reservados.</p>
+          <p>&copy; {year} {SITE_CONFIG.brand}. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

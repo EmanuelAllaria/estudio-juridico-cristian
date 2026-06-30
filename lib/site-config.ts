@@ -43,6 +43,14 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface AboutInfo {
+  name: string;
+  role: string;
+  bio: string;
+  credentials: string[];
+  imageAlt: string;
+}
+
 export interface SiteConfig {
   brand: string;
   phone: string;
@@ -55,6 +63,7 @@ export interface SiteConfig {
   instagramUrl: string;
   domain: string;
   googlePlaceId: string;
+  about: AboutInfo;
   trustBadges: TrustBadge[];
   heroStatsTitle: string;
   heroStats: string[];
@@ -79,6 +88,19 @@ export const SITE_CONFIG: SiteConfig = {
   instagramUrl: "https://www.instagram.com/abogadolaboral.caba/",
   domain: "https://www.aboglaborales.com.ar",
   googlePlaceId: "ChIJ-WaEq6DLvJURNPjBCPDYmJE",
+
+  about: {
+    name: "Dr. Germán Carnevalle",
+    role: "Abogado laboralista — fundador del estudio",
+    bio: "Con más de 20 años dedicados exclusivamente al derecho del trabajo, el Dr. Carnevalle lidera un equipo enfocado en defender los derechos de los trabajadores en Capital Federal y Gran Buenos Aires. Su enfoque directo, honesto y accesible lo convierte en la referencia de miles de personas que confían en el estudio.",
+    credentials: [
+      "Especialista en despidos, trabajo en negro y accidentes laborales",
+      "Atención personal las 24 horas por WhatsApp y teléfono",
+      "Consulta inicial sin cargo y honorarios solo por resultado",
+      "Oficina en Tucumán 1668, 2ºA — CABA",
+    ],
+    imageAlt: "Dr. Germán Carnevalle, abogado laboralista en CABA",
+  },
 
   trustBadges: [
     { icon: "shield", text: "Sin adelantos ni gastos previos" },

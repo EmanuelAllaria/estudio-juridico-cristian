@@ -11,7 +11,7 @@ export function WhyUs() {
   const ratingText = formatRating(data.rating);
 
   return (
-    <section className="section section--slate" aria-labelledby="porque-title">
+    <section className="section section--warm why-us" aria-labelledby="porque-title">
       <div className="container">
         <div className="why-grid">
           <div className="why-grid__content">
@@ -63,19 +63,19 @@ export function WhyUs() {
           </div>
 
           <div className="why-grid__stats">
-            <div className="stat-card">
+            <div className="stat-card stat-card--highlight">
               <span className="stat-card__number">{ratingText}</span>
               <span className="stat-card__label">Estrellas en Google</span>
             </div>
-            <div className="stat-card">
+            <div className="stat-card stat-card--highlight">
               <span className="stat-card__number">{data.reviewCount}</span>
               <span className="stat-card__label">Opiniones verificadas</span>
             </div>
-            <div className="stat-card">
+            <div className="stat-card stat-card--highlight">
               <span className="stat-card__number">24hs</span>
               <span className="stat-card__label">Atención disponible</span>
             </div>
-            <div className="stat-card">
+            <div className="stat-card stat-card--highlight">
               <span className="stat-card__number">$0</span>
               <span className="stat-card__label">Consulta sin cargo</span>
             </div>

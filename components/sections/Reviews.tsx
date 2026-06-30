@@ -10,9 +10,21 @@ import { Stars } from "@/components/ui/Stars";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { formatRating } from "@/lib/stars";
 
+const FEATURED_REVIEW_KEYWORD = "Germán Carnevalle";
+
+function findFeaturedReviewIndex(reviews: typeof SITE_CONFIG.reviews) {
+  const index = reviews.findIndex((r) =>
+    r.text.includes(FEATURED_REVIEW_KEYWORD)
+  );
+  return index >= 0 ? index : 0;
+}
+
 export function Reviews() {
   const { data, isLive } = useGoogleReviews();
   const ratingText = formatRating(data.rating);
+  const featuredIndex = findFeaturedReviewIndex(data.reviews);
+  const featuredReview = data.reviews[featuredIndex];
+  const otherReviews = data.reviews.filter((_, i) => i !== featuredIndex);
 
   useEffect(() => {
     if (isLive) {
@@ -33,6 +45,13 @@ export function Reviews() {
             Lo que dicen nuestros clientes
           </h2>
         </header>
+
+        {featuredReview && (
+          <div className="review-featured">
+            <p className="review-featured__label">Opinión destacada</p>
+            <ReviewCard review={featuredReview} featured />
+          </div>
+        )}
 
         <div className="reviews-panel">
           <GoogleBadge rating={data.rating} variant="panel" />
@@ -70,7 +89,7 @@ export function Reviews() {
           )}
 
           <div className="reviews-scroll" id="reviews-container" role="list">
-            {data.reviews.map((review) => (
+            {otherReviews.map((review) => (
               <ReviewCard
                 key={`${review.name}-${review.date}`}
                 review={review}

@@ -6,21 +6,24 @@
 }
 
 .section {
-  padding-block: var(--space-section);
+  padding-block: clamp(3rem, 7vw, 6.5rem);
 }
 
 .section--white {
-  position: relative;
   background-color: var(--color-surface);
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)),
-    url("/images/hero-bg.webp");
-  background-size: cover;
-  background-position: center;
 }
 
 .section--slate {
   background-color: var(--color-slate-100);
+}
+
+.section--warm {
+  background-color: var(--color-warm-50);
+}
+
+.section--accent {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
 }
 
 .section--navy {

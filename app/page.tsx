@@ -4,6 +4,7 @@ import { GoogleReviewsProvider } from "@/components/GoogleReviewsProvider";
 import { FloatCta } from "@/components/layout/FloatCta";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { About } from "@/components/sections/About";
 import { CtaFinal } from "@/components/sections/CtaFinal";
 import { Faq } from "@/components/sections/Faq";
 import { Hero } from "@/components/sections/Hero";
@@ -48,6 +49,7 @@ export default async function HomePage() {
       <main>
         <Hero />
         <TrustBar />
+        <About />
         <Specialties />
         <Reviews />
         <Process />

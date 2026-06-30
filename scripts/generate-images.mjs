@@ -2,10 +2,12 @@ import sharp from "sharp";
 import { join } from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import { existsSync } from "fs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const imagesDir = join(ROOT, "public", "images");
+const stockDir = join(imagesDir, "stock");
 const assetsImagesDir = join(ROOT, "assets", "images");
 
 await sharp(join(imagesDir, "logo.svg"), { density: 300 })
@@ -52,4 +54,20 @@ await sharp(Buffer.from(heroBgSvg))
   .webp({ quality: 72 })
   .toFile(join(imagesDir, "hero-bg.webp"));
 
-console.log("✓ logo.png, og-image.jpg, apple-touch-icon.png y hero-bg.webp generados");
+const stockImages = [
+  { src: "hero-lawyer.jpg", dest: "hero-lawyer.webp", width: 1200, height: 900 },
+  { src: "about-founder.jpg", dest: "about-founder.webp", width: 800, height: 1000 },
+  { src: "office-caba.jpg", dest: "office-caba.webp", width: 1200, height: 800 },
+];
+
+for (const { src, dest, width, height } of stockImages) {
+  const inputPath = join(stockDir, src);
+  if (existsSync(inputPath)) {
+    await sharp(inputPath)
+      .resize(width, height, { fit: "cover", position: "centre" })
+      .webp({ quality: 82 })
+      .toFile(join(imagesDir, dest));
+  }
+}
+
+console.log("✓ logo.png, og-image.jpg, apple-touch-icon.png, hero-bg.webp y fotos stock generados");
