@@ -278,12 +278,12 @@ export const SITE_CONFIG: SiteConfig = {
 export const SEO = {
   title: "Abogados Laborales CABA | Despidos y Accidentes | Consulta Gratis",
   description:
-    "Abogados laborales en CABA. Especialistas en despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo por WhatsApp 11-4673-4420, 24 horas. 5 estrellas en Google.",
+    "Abogados laborales. Especialistas en despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo por WhatsApp 11-4673-4420, 24 horas. 5 estrellas en Google.",
   ogDescription:
-    "Abogados laborales en CABA. Despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo: 11-4673-4420. 5 estrellas en Google.",
+    "Abogados laborales. Despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo: 11-4673-4420. 5 estrellas en Google.",
   twitterDescription:
-    "Abogados laborales en CABA. Consulta sin cargo por WhatsApp 11-4673-4420. 5 estrellas en Google.",
+    "Abogados laborales. Consulta sin cargo por WhatsApp 11-4673-4420. 5 estrellas en Google.",
   ogImageAlt:
-    "Abogados Laborales — Defendemos tus derechos laborales sin adelantos",
+    "Abogados Laborales — Defendemos tus derechos laborales",
   googleAdsId: "AW-996950383",
 } as const;

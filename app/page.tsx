@@ -30,10 +30,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     description: `${SEO.description} ${ratingText} estrellas con ${count} reseñas en Google.`,
     openGraph: {
-      description: `Abogados laborales en CABA. Despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo: 11-4673-4420. ${ratingText} estrellas en Google con ${count} reseñas.`,
+      description: `Abogados laborales. Despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo: 11-4673-4420. ${ratingText} estrellas en Google con ${count} reseñas.`,
     },
     twitter: {
-      description: `Abogados laborales en CABA. Consulta sin cargo por WhatsApp 11-4673-4420. ${ratingText}★ en Google (${count} reseñas).`,
+      description: `Abogados laborales. Consulta sin cargo por WhatsApp 11-4673-4420. ${ratingText}★ en Google (${count} reseñas).`,
     },
   };
 }

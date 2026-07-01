@@ -17,11 +17,10 @@ export function Hero() {
       <div className="container hero__inner">
         <div className="hero__content">
           <span className="hero__eyebrow reveal reveal--left">
-            Abogados laboralistas en CABA
+            Abogados laboralistas
           </span>
           <h1 id="hero-title" className="hero__title reveal reveal--left">
             Defendemos tus derechos{" "}
-            <span className="hero__title-accent">sin adelantos</span>
           </h1>
           <p className="hero__subtitle reveal reveal--left">
             Despidos, trabajo en negro y accidentes laborales. Consultá sin
