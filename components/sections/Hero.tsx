@@ -1,6 +1,5 @@
 "use client";
 
-import { GoogleBadge } from "@/components/ui/GoogleBadge";
 import { Icon, PhoneIcon } from "@/components/ui/Icon";
 import { WhatsAppCtaLink } from "@/components/ui/WhatsAppCtaLink";
 import { useGoogleReviews } from "@/components/GoogleReviewsProvider";
@@ -43,14 +42,6 @@ export function Hero() {
               <PhoneIcon />
               Llamanos ahora
             </a>
-          </div>
-
-          <div
-            className="hero__rating reveal reveal--left"
-            aria-label="Calificación en Google"
-            id="hero-rating"
-          >
-            <GoogleBadge rating={data.rating} variant="hero" />
           </div>
         </div>
 
