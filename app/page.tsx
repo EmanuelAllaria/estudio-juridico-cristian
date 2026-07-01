@@ -14,16 +14,21 @@ import { TrustBar } from "@/components/sections/TrustBar";
 import { WhyUs } from "@/components/sections/WhyUs";
 import {
   buildPageConfig,
+  getBuildTimeReviews,
   getGoogleReviews,
 } from "@/lib/google-reviews";
 import { SEO } from "@/lib/site-config";
 import { formatRating } from "@/lib/stars";
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
-export const revalidate = 3600;
+const isFtpExport = process.env.BUILD_TARGET === "ftp";
+
+async function loadReviewsData() {
+  return isFtpExport ? getBuildTimeReviews() : getGoogleReviews();
+}
 
 export async function generateMetadata(): Promise<Metadata> {
-  const reviewsData = await getGoogleReviews();
+  const reviewsData = await loadReviewsData();
   const ratingText = formatRating(reviewsData.rating);
   const count = reviewsData.reviewCount;
 
@@ -39,12 +44,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const reviewsData = await getGoogleReviews();
+  const reviewsData = await loadReviewsData();
   const pageConfig = buildPageConfig(reviewsData);
 
   return (
     <GoogleReviewsProvider initialData={reviewsData}>
-      <SpeedInsights />
+      {!isFtpExport && <SpeedInsights />}
       <JsonLd config={pageConfig} />
       <Header />
       <main>

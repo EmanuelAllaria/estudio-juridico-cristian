@@ -8,6 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import type { GoogleReviewsPayload } from "@/lib/stars";
+import { normalizePayload } from "@/lib/stars";
 
 interface GoogleReviewsContextValue {
   data: GoogleReviewsPayload;
@@ -33,11 +34,14 @@ export function GoogleReviewsProvider({
 
     async function refresh() {
       try {
-        const res = await fetch("/api/google-reviews", { cache: "no-store" });
+        const endpoint =
+          process.env.NEXT_PUBLIC_REVIEWS_API ?? "/api/google-reviews";
+        const res = await fetch(endpoint, { cache: "no-store" });
         if (!res.ok || cancelled) return;
 
-        const payload: GoogleReviewsPayload = await res.json();
-        if (!isGoogleSource(payload.source)) return;
+        const raw = await res.json();
+        const payload = normalizePayload(raw);
+        if (!payload || !isGoogleSource(payload.source) || cancelled) return;
 
         setData(payload);
         setIsLive(true);

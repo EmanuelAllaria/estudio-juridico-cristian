@@ -129,6 +129,25 @@ export async function fetchFromJsonCache(): Promise<GoogleReviewsPayload | null>
   }
 }
 
+function getConfigFallbackReviews(): GoogleReviewsPayload {
+  const avgRating =
+    SITE_CONFIG.reviews.reduce((sum, review) => sum + review.rating, 0) /
+    SITE_CONFIG.reviews.length;
+
+  const payload = normalizePayload({
+    rating: avgRating,
+    reviewCount: SITE_CONFIG.reviews.length,
+    reviews: SITE_CONFIG.reviews,
+    source: "config-fallback",
+  });
+
+  if (!payload) {
+    throw new Error("No se pudo generar fallback de reseñas");
+  }
+
+  return payload;
+}
+
 export async function getGoogleReviews(): Promise<GoogleReviewsPayload> {
   const strategies = [
     fetchFromPlacesApi,
@@ -148,6 +167,22 @@ export async function getGoogleReviews(): Promise<GoogleReviewsPayload> {
   throw new Error(
     "No hay datos de Google Reviews. Configurá GOOGLE_PLACES_API_KEY o ejecutá npm run sync:reviews"
   );
+}
+
+/** Para export estático (FTP): usa caché local, sin llamar a Google en build. */
+export async function getBuildTimeReviews(): Promise<GoogleReviewsPayload> {
+  const cached = await fetchFromJsonCache();
+  if (cached) return cached;
+
+  if (process.env.BUILD_TARGET === "ftp") {
+    return getConfigFallbackReviews();
+  }
+
+  try {
+    return await getGoogleReviews();
+  } catch {
+    return getConfigFallbackReviews();
+  }
 }
 
 export function buildPageConfig(

@@ -1,6 +1,6 @@
 {
   "rating": 5,
-  "reviewCount": 174,
+  "reviewCount": 176,
   "reviews": [
     {
       "name": "Robert Soria",
@@ -39,5 +39,5 @@
     }
   ],
   "source": "places-api",
-  "fetchedAt": "2026-06-30T21:39:38.113Z"
+  "fetchedAt": "2026-07-01T21:53:54.828Z"
 }

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "node scripts/generate-images.mjs && next build",
+    "build:ftp": "node scripts/build-ftp.mjs",
     "start": "next start",
     "lint": "next lint",
     "sync:reviews": "node scripts/sync-google-reviews.mjs",
