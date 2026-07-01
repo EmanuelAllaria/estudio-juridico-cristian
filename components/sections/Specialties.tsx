@@ -6,7 +6,7 @@ export function Specialties() {
   return (
     <section
       id="servicios"
-      className="section section--white"
+      className="section section--warm"
       aria-labelledby="servicios-title"
     >
       <div className="container">

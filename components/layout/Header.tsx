@@ -7,7 +7,6 @@ import { createPortal } from "react-dom";
 import { WhatsAppCtaLink } from "@/components/ui/WhatsAppCtaLink";
 
 const NAV_LINKS = [
-  { href: "#nosotros", label: "Nosotros" },
   { href: "#servicios", label: "Servicios" },
   { href: "#resenas", label: "Opiniones" },
   { href: "#proceso", label: "Cómo funciona" },

@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { GoogleBadge } from "@/components/ui/GoogleBadge";
-import { PhoneIcon } from "@/components/ui/Icon";
+import { Icon, PhoneIcon } from "@/components/ui/Icon";
 import { WhatsAppCtaLink } from "@/components/ui/WhatsAppCtaLink";
 import { useGoogleReviews } from "@/components/GoogleReviewsProvider";
 import { SITE_CONFIG } from "@/lib/site-config";
@@ -14,9 +13,13 @@ export function Hero() {
   return (
     <section id="inicio" className="hero section" aria-labelledby="hero-title">
       <div className="hero__accent-bar" aria-hidden="true" />
+      <div className="hero__bg-glow" aria-hidden="true" />
 
       <div className="container hero__inner">
         <div className="hero__content">
+          <span className="hero__eyebrow reveal reveal--left">
+            Abogados laboralistas en CABA
+          </span>
           <h1 id="hero-title" className="hero__title reveal reveal--left">
             Defendemos tus derechos{" "}
             <span className="hero__title-accent">sin adelantos</span>
@@ -51,16 +54,20 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="hero__media reveal reveal--scale reveal--right">
-          <Image
-            src="/images/hero-lawyer.webp"
-            alt="Abogado laboralista asesorando a un trabajador en CABA"
-            className="hero__photo"
-            width={640}
-            height={720}
-            priority
-            sizes="(max-width: 1023px) 100vw, 48vw"
-          />
+        <div className="hero__trust-panel reveal reveal--scale reveal--right">
+          <p className="hero__trust-panel-title">
+            {SITE_CONFIG.heroStatsTitle}
+          </p>
+          <ul className="hero__trust-list">
+            {SITE_CONFIG.trustBadges.map((badge) => (
+              <li key={badge.text} className="hero__trust-item">
+                <span className="hero__trust-icon" aria-hidden="true">
+                  <Icon name={badge.icon} />
+                </span>
+                <span className="hero__trust-text">{badge.text}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
