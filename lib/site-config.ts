@@ -327,19 +327,65 @@ export const SITE_CONFIG: SiteConfig = {
       answer:
         "Nuestro estudio está en Mitre 535, 1° piso, oficinas 43 y 44, Ciudad de Mendoza. Atendemos causas en el ámbito provincial de Mendoza y en la Justicia Federal.",
     },
+    {
+      question: "¿Cómo encuentro un abogado penalista de urgencia en Mendoza?",
+      answer:
+        "Podés contactar a Hidalgo & Crifo las 24 horas por WhatsApp o teléfono (261 255-7461 / 261 558-3158). Actuamos de inmediato ante detenciones, allanamientos, citaciones e investigaciones penales en Mendoza y en la Justicia Federal.",
+    },
+    {
+      question:
+        "¿Qué hace un abogado en un reclamo por accidente de tránsito en Mendoza?",
+      answer:
+        "Analiza la evidencia para determinar la responsabilidad, calcula una indemnización que incluya daños materiales, lesiones, gastos médicos, lucro cesante y daño moral, negocia con la aseguradora y, si no hay acuerdo justo, inicia el reclamo judicial.",
+    },
   ],
 };
 
 export const SEO = {
   title:
-    "Abogados Penalistas y Accidentes de Tránsito Mendoza | Hidalgo & Crifo",
+    "Abogado Penalista Mendoza 24 hs | Accidentes de Tránsito | Hidalgo & Crifo",
+  titleShort: "Abogado Penalista y Accidentes Mendoza | Hidalgo & Crifo",
   description:
-    "Hidalgo & Crifo Abogados. Defensa penal urgente las 24 hs y reclamos por accidentes de tránsito en Mendoza. Consultá por WhatsApp al 261 255-7461 / 261 558-3158.",
+    "Defensa penal urgente en Mendoza las 24 hs: detenciones, citaciones y allanamientos. También reclamos por accidentes de tránsito ante aseguradoras. Hidalgo & Crifo Abogados — WhatsApp 261 255-7461 / 261 558-3158.",
   ogDescription:
-    "Estudio jurídico en Mendoza. Derecho penal y accidentes de tránsito. Defensa urgente las 24 hs. WhatsApp 261 255-7461 / 261 558-3158.",
+    "Estudio en Mendoza para urgencias penales y reclamos por accidentes de tránsito. Actuación inmediata, confidencial. Mitre 535. WhatsApp 261 255-7461 / 261 558-3158.",
   twitterDescription:
-    "Defensa penal urgente y accidentes de tránsito en Mendoza. Hidalgo & Crifo Abogados. WhatsApp 261 255-7461 / 261 558-3158.",
+    "Abogado penalista 24 hs y accidentes de tránsito en Mendoza. Hidalgo & Crifo. WhatsApp 261 255-7461 / 261 558-3158.",
   ogImageAlt:
-    "Hidalgo & Crifo Abogados — Defensa penal y accidentes de tránsito en Mendoza",
+    "Hidalgo & Crifo Abogados — Defensa penal urgente y accidentes de tránsito en Mendoza",
+  /** Clusters de intención (contenido + schema), no spam de meta keywords */
+  focusKeywords: [
+    "abogado penalista Mendoza",
+    "defensa penal urgente Mendoza",
+    "abogado accidentes de tránsito Mendoza",
+    "reclamo accidente de tránsito Mendoza",
+    "abogado detención Mendoza",
+    "excarcelación Mendoza",
+    "citación judicial abogado Mendoza",
+    "indemnización accidente de tránsito",
+  ],
+  keywords: [
+    "abogado penalista Mendoza",
+    "abogados penalistas Mendoza",
+    "defensa penal urgente",
+    "abogado accidentes de tránsito Mendoza",
+    "reclamo por accidente de tránsito",
+    "indemnización accidente Mendoza",
+    "excarcelación Mendoza",
+    "citación judicial Mendoza",
+    "allanamiento abogado",
+    "estudio jurídico Mendoza",
+    "Hidalgo & Crifo Abogados",
+    "derecho penal Mendoza",
+    "Justicia Federal Mendoza",
+  ],
+  locale: "es_AR",
+  geo: {
+    region: "AR-M",
+    placename: "Mendoza",
+    latitude: -32.8894587,
+    longitude: -68.8458386,
+  },
   googleAdsId: "",
 } as const;
+

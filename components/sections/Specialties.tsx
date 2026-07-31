@@ -16,7 +16,8 @@ export function Specialties() {
             ¿En qué situación te encontrás?
           </h2>
           <p className="section-subtitle">
-            Defensa penal urgente: tocá tu situación y escribinos por WhatsApp.
+            Defensa penal urgente en Mendoza: tocá tu situación y escribinos por
+            WhatsApp.
           </p>
         </header>
 

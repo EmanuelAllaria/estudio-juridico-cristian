@@ -10,6 +10,7 @@ import { SITE_CONFIG } from "@/lib/site-config";
 const NAV_LINKS = [
   { href: "#servicios", label: "Servicios" },
   { href: "#accidentes", label: "Accidentes" },
+  { href: "#cobertura", label: "Mendoza" },
   { href: "#proceso", label: "Cómo funciona" },
   { href: "#faq", label: "Preguntas Frecuentes" },
 ] as const;

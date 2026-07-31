@@ -38,7 +38,7 @@ export function AccidentTypes() {
           <div className="accident-types__media">
             <Image
               src="/images/accidentes-transito.webp"
-              alt="Vehículos en la vía — accidentes de tránsito"
+              alt="Accidente de tránsito en Mendoza — reclamo e indemnización con abogado especializado"
               className="accident-types__img"
               width={640}
               height={480}

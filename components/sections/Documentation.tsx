@@ -47,7 +47,7 @@ export function Documentation() {
         <div className="documentation__media">
           <Image
             src="/images/documentacion-legal.webp"
-            alt="Documentación legal para reclamos"
+            alt="Documentación para reclamo por accidente de tránsito: fotos, certificados médicos y papeles del vehículo"
             className="documentation__img"
             width={560}
             height={700}

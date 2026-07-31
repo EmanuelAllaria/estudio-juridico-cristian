@@ -12,7 +12,7 @@ export function Hero() {
       <div className="hero__media" aria-hidden="true">
         <Image
           src="/images/hero-justicia.webp"
-          alt=""
+          alt="Estudio jurídico Hidalgo & Crifo — defensa penal urgente en Mendoza"
           fill
           priority
           sizes="100vw"

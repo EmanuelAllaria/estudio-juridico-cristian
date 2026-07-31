@@ -10,22 +10,34 @@ import { Faq } from "@/components/sections/Faq";
 import { Hero } from "@/components/sections/Hero";
 import { LegalAssistance } from "@/components/sections/LegalAssistance";
 import { Process } from "@/components/sections/Process";
+import { SeoCoverage } from "@/components/sections/SeoCoverage";
 import { Specialties } from "@/components/sections/Specialties";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { buildSchemaPageConfig } from "@/lib/schema";
-import { SEO } from "@/lib/site-config";
+import { SEO, SITE_CONFIG } from "@/lib/site-config";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const isFtpExport = process.env.BUILD_TARGET === "ftp";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
+    title: SEO.title,
     description: SEO.description,
+    keywords: [...SEO.keywords],
+    alternates: {
+      canonical: SITE_CONFIG.domain,
+    },
     openGraph: {
+      title: SEO.title,
       description: SEO.ogDescription,
+      url: SITE_CONFIG.domain,
+      type: "website",
+      locale: SEO.locale,
+      siteName: SITE_CONFIG.brand,
     },
     twitter: {
+      title: SEO.titleShort,
       description: SEO.twitterDescription,
     },
   };
@@ -39,7 +51,9 @@ export default async function HomePage() {
       {!isFtpExport && <SpeedInsights />}
       <JsonLd config={pageConfig} />
       <Header />
-      <main>
+      <main itemScope itemType="https://schema.org/WebPage">
+        <meta itemProp="name" content={SEO.title} />
+        <meta itemProp="description" content={SEO.description} />
         <Hero />
         <TrustBar />
         <Specialties />
@@ -48,6 +62,7 @@ export default async function HomePage() {
         <Documentation />
         <Process />
         <WhyUs />
+        <SeoCoverage />
         <Faq />
         <CtaFinal />
       </main>

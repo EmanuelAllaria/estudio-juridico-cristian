@@ -34,6 +34,8 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_CONFIG.brand }],
   creator: SITE_CONFIG.brand,
   publisher: SITE_CONFIG.brand,
+  keywords: [...SEO.keywords],
+  referrer: "origin-when-cross-origin",
   formatDetection: {
     email: false,
     address: false,
@@ -42,9 +44,11 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
@@ -54,27 +58,30 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: {
       "es-AR": "/",
+      es: "/",
     },
   },
   openGraph: {
     type: "website",
-    locale: "es_AR",
+    locale: SEO.locale,
     url: SITE_CONFIG.domain,
     siteName: SITE_CONFIG.brand,
     title: SEO.title,
     description: SEO.ogDescription,
+    countryName: "Argentina",
     images: [
       {
         url: ogImage,
         width: 1200,
         height: 630,
         alt: SEO.ogImageAlt,
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: SEO.title,
+    title: SEO.titleShort,
     description: SEO.twitterDescription,
     images: [ogImage],
   },
@@ -83,11 +90,21 @@ export const metadata: Metadata = {
     apple: [{ url: "/images/apple-touch-icon.png", sizes: "180x180" }],
   },
   category: "legal",
+  classification: "Abogados, Derecho penal, Accidentes de tránsito, Mendoza",
   other: {
-    "geo.region": "AR-M",
-    "geo.placename": "Mendoza",
-    "geo.position": "-32.8894587;-68.8458386",
-    ICBM: "-32.8894587, -68.8458386",
+    "geo.region": SEO.geo.region,
+    "geo.placename": SEO.geo.placename,
+    "geo.position": `${SEO.geo.latitude};${SEO.geo.longitude}`,
+    ICBM: `${SEO.geo.latitude}, ${SEO.geo.longitude}`,
+    "og:locale:alternate": "es_ES",
+    "business:contact_data:street_address":
+      "Mitre 535, 1° piso, oficinas 43 y 44",
+    "business:contact_data:locality": "Mendoza",
+    "business:contact_data:region": "Mendoza",
+    "business:contact_data:postal_code": "5500",
+    "business:contact_data:country_name": "Argentina",
+    "business:contact_data:email": SITE_CONFIG.email,
+    "business:contact_data:phone_number": SITE_CONFIG.phones[0],
   },
 };
 
