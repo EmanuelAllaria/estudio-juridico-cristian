@@ -1,43 +1,7 @@
 {
-  "rating": 5,
-  "reviewCount": 176,
-  "reviews": [
-    {
-      "name": "Robert Soria",
-      "rating": 5,
-      "text": "Tuve una excelente experiencia con Germán. Me contacté para realizar una consulta legal y rápidamente se comunicó conmigo. Durante la conversación fue muy claro, directo y profesional, explicándome con tranquilidad todas las opciones y posibles resultados del caso. Destaco especialmente su honestidad y la manera sencilla en la que pudo orientarme. Estoy muy agradecido por su ayuda y lo recomiendo totalmente.",
-      "date": "Hace 4 meses",
-      "initials": "RS"
-    },
-    {
-      "name": "Leila Hernandez",
-      "rating": 5,
-      "text": "La atención es EXCELENTE! Tuve un problema laboral y me asesoraron rápidamente, muy serio y comprometido con mi situación. Recomiendo 100%, son súper confiables y resuelven defendiendo lo que te corresponde.",
-      "date": "Hace un mes",
-      "initials": "LH"
-    },
-    {
-      "name": "Mariana Di Salvio",
-      "rating": 5,
-      "text": "Me contacté con el estudio y me respondieron de inmediato. Me brindaron un excelente asesoramiento. ¡Los recomiendo totalmente!",
-      "date": "Hace una semana",
-      "initials": "MS"
-    },
-    {
-      "name": "Elsa Guitian",
-      "rating": 5,
-      "text": "Súper recomendable el Dr. Germán Carnevalle, abogado laboral. Tiene un conocimiento claro en derecho del trabajo. Siempre respondió de inmediato por teléfono y videollamada. Comprobé que la atención 24 horas es totalmente real. Me brindó todo su apoyo de forma gratuita y con gran profesionalismo.",
-      "date": "Hace 4 meses",
-      "initials": "EG"
-    },
-    {
-      "name": "Silvina Mata",
-      "rating": 5,
-      "text": "Excelente equipo de abogados. Sus respuestas son inmediatas. Buena predisposición para sus clientes.",
-      "date": "Hace 4 meses",
-      "initials": "SM"
-    }
-  ],
-  "source": "places-api",
-  "fetchedAt": "2026-07-01T21:53:54.828Z"
+  "rating": 0,
+  "reviewCount": 0,
+  "reviews": [],
+  "source": "config-fallback",
+  "fetchedAt": "2026-07-31T00:00:00.000Z"
 }

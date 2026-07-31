@@ -1,12 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AL">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Hidalgo &amp; Crifo">
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#D4AF37" stroke-width="2" />
   <text
     x="32"
-    y="46"
-    font-family="Georgia, 'Times New Roman', Times, serif"
-    font-size="42"
-    font-weight="400"
+    y="38"
     text-anchor="middle"
-    fill="#0c1222"
-    letter-spacing="-3"
-  >AL</text>
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="18"
+    font-weight="700"
+    letter-spacing="0.04em"
+    fill="#0D1B2A"
+  >HC</text>
 </svg>

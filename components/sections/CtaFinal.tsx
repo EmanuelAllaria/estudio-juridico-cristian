@@ -10,11 +10,11 @@ export function CtaFinal() {
     >
       <div className="container cta-final__inner">
         <h2 id="cta-final-title" className="cta-final__title">
-          ¿Tenés un problema laboral? Consultanos hoy
+          ¿Necesitás defensa penal o un reclamo por accidente?
         </h2>
         <p className="cta-final__text">
-          La consulta es gratuita y confidencial. Nuestro equipo te responde
-          en minutos por WhatsApp.
+          Actuamos de inmediato las 24 hs. Consultá por WhatsApp y te
+          orientamos con confidencialidad.
         </p>
         <div className="cta-final__actions">
           <WhatsAppCtaLink

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/site-config";
-import { getMailtoUrl, getPhoneUrl } from "@/lib/urls";
+import { getMailtoUrl, getPhoneUrl, getWhatsAppUrl } from "@/lib/urls";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -13,7 +13,7 @@ export function Footer() {
             src="/images/logo-light.svg"
             alt=""
             className="footer__logo-img"
-            width={180}
+            width={200}
             height={40}
             aria-hidden
           />
@@ -29,34 +29,52 @@ export function Footer() {
               {SITE_CONFIG.address}
             </a>
           </p>
-          <p>
-            <a href={getPhoneUrl()}>{SITE_CONFIG.phone}</a>
-          </p>
+          {SITE_CONFIG.phones.map((phone, index) => (
+            <p key={phone}>
+              <a href={getPhoneUrl(phone)}>{phone}</a>
+              {" · "}
+              <a
+                href={getWhatsAppUrl(
+                  SITE_CONFIG,
+                  undefined,
+                  SITE_CONFIG.whatsapps[index] ?? phone
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
+            </p>
+          ))}
           <p>
             <a href={getMailtoUrl()}>{SITE_CONFIG.email}</a>
           </p>
-          <p className="footer__social">
-            <a
-              href={SITE_CONFIG.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram @abogadolaboral.caba
-            </a>
-          </p>
+          {SITE_CONFIG.instagramUrl ? (
+            <p className="footer__social">
+              <a
+                href={SITE_CONFIG.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+            </p>
+          ) : null}
           <p className="footer__social">
             <a
               href={SITE_CONFIG.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Ver en Google
+              Ver en Google Maps
             </a>
           </p>
         </div>
 
         <div className="footer__legal">
-          <p>&copy; {year} {SITE_CONFIG.brand}. Todos los derechos reservados.</p>
+          <p>
+            &copy; {year} {SITE_CONFIG.brand}. Todos los derechos reservados.
+          </p>
         </div>
       </div>
     </footer>

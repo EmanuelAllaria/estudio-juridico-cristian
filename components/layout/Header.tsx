@@ -5,10 +5,11 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { WhatsAppCtaLink } from "@/components/ui/WhatsAppCtaLink";
+import { SITE_CONFIG } from "@/lib/site-config";
 
 const NAV_LINKS = [
   { href: "#servicios", label: "Servicios" },
-  { href: "#resenas", label: "Opiniones" },
+  { href: "#accidentes", label: "Accidentes" },
   { href: "#proceso", label: "Cómo funciona" },
   { href: "#faq", label: "Preguntas Frecuentes" },
 ] as const;
@@ -120,14 +121,14 @@ export function Header() {
           <Link
             href="#inicio"
             className="header__logo"
-            aria-label="Abogados Laborales & Asoc. — Inicio"
+            aria-label={`${SITE_CONFIG.brand} — Inicio`}
             onClick={closeNav}
           >
             <Image
               src="/images/logo.svg"
-              alt="Abogados Laborales"
+              alt={SITE_CONFIG.brand}
               className="header__logo-img"
-              width={200}
+              width={220}
               height={44}
               priority
             />

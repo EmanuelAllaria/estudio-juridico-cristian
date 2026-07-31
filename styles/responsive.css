@@ -121,6 +121,14 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .accident-types__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .legal-assistance__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .why-grid__content .btn {
     width: auto;
   }
@@ -227,6 +235,34 @@
 
   .specialties-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .accident-types__intro {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .accident-types__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .accident-types__grid .accident-type-card:nth-child(4),
+  .accident-types__grid .accident-type-card:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .legal-assistance__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .documentation__inner {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .documentation__media {
+    margin-inline: 0;
+    max-width: none;
   }
 
   .reviews-scroll {

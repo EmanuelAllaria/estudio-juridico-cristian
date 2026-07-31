@@ -26,10 +26,8 @@ export function WhatsAppCtaLink({
     >
       <WhatsAppIcon size={iconSize} />
       <span className="btn__label">
-        <span className="btn__label-full">
-          Iniciar Consulta Gratuita por WhatsApp
-        </span>
-        <span className="btn__label-short">Consultá gratis por WhatsApp</span>
+        <span className="btn__label-full">Consultar por WhatsApp ahora</span>
+        <span className="btn__label-short">Consultá por WhatsApp</span>
       </span>
     </a>
   );

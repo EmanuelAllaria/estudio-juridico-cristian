@@ -43,9 +43,30 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface AccidentType {
+  title: string;
+  description: string;
+}
+
+export interface DocItem {
+  title: string;
+  description: string;
+}
+
+export interface LegalPoint {
+  title: string;
+  description: string;
+}
+
 export interface SiteConfig {
   brand: string;
+  /** Teléfonos de contacto (todos visibles). El primero es el principal para CTAs. */
+  phones: string[];
+  /** WhatsApp en formato internacional sin + (uno por cada teléfono). */
+  whatsapps: string[];
+  /** @deprecated Usar phones[0] — se mantiene por compatibilidad */
   phone: string;
+  /** @deprecated Usar whatsapps[0] */
   whatsapp: string;
   whatsappMessage: string;
   email: string;
@@ -59,231 +80,266 @@ export interface SiteConfig {
   heroStatsTitle: string;
   heroStats: string[];
   specialties: Specialty[];
+  accidentIntro: string;
+  accidentIntroSupport: string;
+  accidentTypes: AccidentType[];
+  legalAssistanceIntro: string;
+  legalAssistancePoints: LegalPoint[];
+  documentationIntro: string;
+  documentationItems: DocItem[];
+  documentationNote: string;
   reviews: Review[];
   processSteps: ProcessStep[];
   whyReasons: WhyReason[];
   faq: FaqItem[];
 }
 
+const PHONES = ["261 255-7461", "261 558-3158"] as const;
+const WHATSAPPS = ["5492612557461", "5492615583158"] as const;
+
 export const SITE_CONFIG: SiteConfig = {
-  brand: "Abogados Laborales & Asoc.",
-  phone: "+54 9 11 4673-4420",
-  whatsapp: "541146734420",
+  brand: "Hidalgo & Crifo Abogados",
+  phones: [...PHONES],
+  whatsapps: [...WHATSAPPS],
+  phone: PHONES[0],
+  whatsapp: WHATSAPPS[0],
   whatsappMessage:
-    "Hola, quiero hacer una consulta laboral sin cargo. Vi su página y me gustaría que me asesoren.",
-  email: "info@aboglaborales.com.ar",
-  address: "Tucumán 1668, 2ºA - CABA",
-  mapsUrl: "https://maps.app.goo.gl/weeMB9y9jiw2BjBy5",
+    "Hola, necesito asesoramiento legal urgente. Vi su página y me gustaría que me orienten.",
+  email: "alejandrohidalgoabogado@hotmail.com",
+  address: "Mitre 535, 1° piso, oficinas 43 y 44, Ciudad de Mendoza",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Mitre+535+Mendoza",
   googleMapsUrl:
-    "https://www.google.com/maps/place/Abogados+Laborales+%26+Asoc./@-34.6020072,-58.3907044,17z/data=!3m1!4b1!4m6!3m5!1s0x95bccba0ab8466f9:0x9198d8f008c1f834!8m2!3d-34.6020072!4d-58.3907044!16s%2Fg%2F11cn3vx9hq",
-  instagramUrl: "https://www.instagram.com/abogadolaboral.caba/",
-  domain: "https://www.aboglaborales.com.ar",
-  googlePlaceId: "ChIJ-WaEq6DLvJURNPjBCPDYmJE",
+    "https://www.google.com/maps/search/?api=1&query=Mitre+535+Mendoza",
+  instagramUrl: "",
+  domain: "https://www.defensasyaccidentes.com.ar",
+  googlePlaceId: "",
 
   trustBadges: [
-    { icon: "shield", text: "Sin adelantos ni gastos previos" },
-    { icon: "clock", text: "Atención 24 horas por WhatsApp y teléfono" },
-    { icon: "check", text: "Consulta sin cargo y confidencial" },
-    { icon: "scale", text: "Honorarios solo por resultado" },
+    { icon: "scale", text: "Experiencia" },
+    { icon: "clock", text: "Velocidad" },
+    { icon: "check", text: "Eficacia" },
+    { icon: "shield", text: "Confidencialidad" },
   ],
 
-  heroStatsTitle: "¿Por qué miles de trabajadores nos eligen?",
+  heroStatsTitle: "Nuestro equipo a su disposición, de manera inmediata",
   heroStats: [
-    "20+ años defendiendo trabajadores",
-    "10.000+ trabajadores confiaron en nosotros",
-    "2.500+ casos resueltos",
-    "Calificación 5 estrellas en Google",
-    "Respuesta rápida por WhatsApp",
+    "Más de 20 años de trayectoria",
+    "Defensa penal urgente las 24 hs",
+    "Mendoza y Justicia Federal",
+    "Secreto profesional absoluto",
+    "Respuesta inmediata por WhatsApp",
   ],
 
   specialties: [
     {
-      id: "despidos",
-      title: "¿Te despidieron?",
+      id: "investigacion",
+      title: "¿Te están investigando?",
       description:
-        "Despido con o sin causa, verbal o por telegrama. Te asesoramos para reclamar tu máxima indemnización. No firmes nada sin consultar.",
+        "No esperes a la imputación. Si sospechás de una causa en tu contra, blindamos tu situación legal con una estrategia preventiva. Protegemos tu patrimonio y tu libertad desde el primer momento.",
       whatsappMessage:
-        "Hola Estudio, me despidieron y necesito asesoramiento urgente.",
-      track: "cta-section-despidos",
-      icon: "briefcase",
-    },
-    {
-      id: "negro",
-      title: "¿Trabajás en negro?",
-      description:
-        "Si no estás registrado o te pagan una parte en mano, tenés derecho a exigir que te blanqueen o a considerarte despedido y reclamar una indemnización.",
-      whatsappMessage:
-        "Hola Estudio, me despidieron y necesito asesoramiento urgente.",
-      track: "cta-section-negro",
-      icon: "file",
-    },
-    {
-      id: "accidentes",
-      title: "¿Tuviste un accidente?",
-      description:
-        "Lesiones en tu trabajo o yendo/volviendo (in itinere). Reclamamos ante la ART la indemnización que te corresponde con peritos médicos propios.",
-      whatsappMessage:
-        "Hola, tuve un accidente de trabajo y quiero consultar por el reclamo a la ART.",
-      track: "cta-section-accidentes",
-      icon: "heart",
-    },
-    {
-      id: "sueldos",
-      title: "¿Te deben sueldos?",
-      description:
-        "Falta de pago de salarios, aguinaldos, horas extras o atrasos constantes. Evaluamos la deuda y gestionamos el reclamo urgente.",
-      whatsappMessage:
-        "Hola Estudio, la empresa me debe sueldos y quiero iniciar el reclamo.",
-      track: "cta-section-sueldos",
-      icon: "scale",
-    },
-    {
-      id: "renuncia",
-      title: "¿Te obligan a renunciar?",
-      description:
-        "No envíes ningún telegrama ni firmes nada sin asesorarte. Si te maltratan, te cambian el horario o te presionan para que te vayas, tenés derecho a reclamar tu indemnización.",
-      whatsappMessage:
-        "Hola Estudio, necesito asesoramiento porque me están presionando para renunciar.",
-      track: "cta-section-renuncia",
+        "Hola, creo que me están investigando y necesito asesoramiento penal urgente.",
+      track: "cta-section-investigacion",
       icon: "shield",
     },
     {
-      id: "liquidacion",
-      title: "¿Cuánto te corresponde?",
+      id: "detenido",
+      title: "¿Un familiar está detenido?",
       description:
-        "Te ayudamos a calcular tu liquidación e indemnización exacta según tu antigüedad y sueldo real para que reclames lo que la ley te garantiza.",
+        "Intervención inmediata en comisarías y juzgados las 24 hs. Gestionamos pedidos de excarcelación y control de legalidad para asegurar la libertad y la integridad de tu familiar sin demoras.",
       whatsappMessage:
-        "Hola, me gustaría que me ayuden a calcular mi liquidación e indemnización.",
-      track: "cta-section-liquidacion",
+        "Hola, un familiar está detenido y necesito intervención penal urgente.",
+      track: "cta-section-detenido",
       icon: "clock",
+    },
+    {
+      id: "citacion",
+      title: "¿Recibiste una citación?",
+      description:
+        "No te presentes ante la justicia sin defensa especializada. Analizamos el expediente, preparamos tu declaración y te acompañamos para evitar que un error procesal comprometa tu futuro.",
+      whatsappMessage:
+        "Hola, recibí una citación judicial y necesito un abogado penalista.",
+      track: "cta-section-citacion",
+      icon: "file",
     },
   ],
 
-  reviews: [
+  accidentIntro:
+    "Contar con un abogado especializado en accidentes de tránsito es fundamental para asegurar una compensación justa.",
+  accidentIntroSupport:
+    "Nuestros abogados expertos en accidentes de tránsito lo guiarán en cada paso del proceso.",
+
+  accidentTypes: [
     {
-      name: "Robert Soria",
-      rating: 5,
-      text: "Tuve una excelente experiencia con Germán. Me contacté para realizar una consulta legal y rápidamente se comunicó conmigo. Durante la conversación fue muy claro, directo y profesional, explicándome con tranquilidad todas las opciones y posibles resultados del caso. Destaco especialmente su honestidad y la manera sencilla en la que pudo orientarme. Estoy muy agradecido por su ayuda y lo recomiendo totalmente.",
-      date: "Hace 4 meses",
-      initials: "RS",
+      title: "Choque en cadena",
+      description:
+        "Ocurre cuando tres o más vehículos chocan de forma sucesiva en la misma dirección. La complejidad de estos casos radica en determinar la responsabilidad de cada conductor.",
     },
     {
-      name: "Leila Hernandez",
-      rating: 5,
-      text: "La atención es EXCELENTE! Tuve un problema laboral y me asesoraron rápidamente, muy serio y comprometido con mi situación. Recomiendo 100%, son súper confiables y resuelven defendiendo lo que te corresponde.",
-      date: "Hace un mes",
-      initials: "LH",
+      title: "Choque frontal",
+      description:
+        "Es un impacto entre vehículos que circulan en direcciones opuestas.",
     },
     {
-      name: "Mariana Di Salvio",
-      rating: 5,
-      text: "Me contacté con el estudio y me respondieron de inmediato. Me brindaron un excelente asesoramiento. ¡Los recomiendo totalmente!",
-      date: "Hace una semana",
-      initials: "MS",
+      title: "Choque trasero",
+      description:
+        "Sucede cuando un vehículo impacta por detrás a otro. En la mayoría de los casos, la responsabilidad recae sobre el conductor del vehículo que impacta por detrás.",
     },
     {
-      name: "Elsa Guitian",
-      rating: 5,
-      text: "Súper recomendable el Dr. Germán Carnevalle, abogado laboral. Tiene un conocimiento claro en derecho del trabajo. Siempre respondió de inmediato por teléfono y videollamada. Comprobé que la atención 24 horas es totalmente real. Me brindó todo su apoyo de forma gratuita y con gran profesionalismo.",
-      date: "Hace 4 meses",
-      initials: "EG",
+      title: "Atropello",
+      description:
+        "Se produce cuando un vehículo impacta a un peatón, ciclista o motociclista. Estos casos suelen ser especialmente graves debido a la vulnerabilidad de las víctimas.",
     },
     {
-      name: "Martín Germán López",
-      rating: 5,
-      text: "Me contacté por mensaje y pregunté si podía comunicarme por teléfono. Al momento recibí respuesta. Le comuniqué mi caso al abogado Germán y me orientó en todas mis dudas. Muy recomendado.",
-      date: "Hace 2 meses",
-      initials: "ML",
-    },
-    {
-      name: "Maria Fernanda Gutierrez A",
-      rating: 5,
-      text: "Excelente servicio legal. Los abogados son muy profesionales, tienen mucha experiencia y ofrecen una atención al cliente de primera, destacando por su paciencia y amabilidad. Totalmente recomendados.",
-      date: "Hace 7 meses",
-      initials: "MA",
-    },
-    {
-      name: "Silvina Mata",
-      rating: 5,
-      text: "Excelente equipo de abogados. Sus respuestas son inmediatas. Buena predisposición para sus clientes.",
-      date: "Hace 4 meses",
-      initials: "SM",
+      title: "Vuelco",
+      description:
+        "Ocurre cuando un vehículo se voltea sobre su costado o techo. Puede ser causado por una maniobra brusca, exceso de velocidad o un impacto previo.",
     },
   ],
+
+  legalAssistanceIntro:
+    "Las compañías de seguros a menudo buscan minimizar los pagos, y un abogado experto puede:",
+  legalAssistancePoints: [
+    {
+      title: "Determinar la responsabilidad",
+      description:
+        "Analizar la evidencia (informe policial, peritajes, testigos) para establecer quién fue el culpable del accidente.",
+    },
+    {
+      title: "Calcular la indemnización",
+      description:
+        "Asegurar que se incluyan todos los daños (materiales, lesiones, gastos médicos, lucro cesante y daño moral).",
+    },
+    {
+      title: "Negociar con las aseguradoras",
+      description:
+        "Tratar directamente con la compañía de seguros para lograr un acuerdo beneficioso para el cliente.",
+    },
+    {
+      title: "Iniciar una demanda",
+      description:
+        "Si no se llega a un acuerdo justo, el abogado puede iniciar un proceso judicial para defender los derechos del damnificado.",
+    },
+  ],
+
+  documentationIntro:
+    "Si nos enviás la siguiente documentación, podemos avanzar más rápido en el reclamo.",
+  documentationItems: [
+    {
+      title: "Fotos del hecho",
+      description:
+        "Si las tenés, sirven fotos del lugar, los daños, las patentes y cualquier evidencia visible del accidente.",
+    },
+    {
+      title: "Certificados médicos",
+      description:
+        "Estudios, constancias de atención o guardia, y cualquier documento que acredite lesiones o controles posteriores.",
+    },
+    {
+      title: "Documentación personal",
+      description:
+        "DNI, registro, cédula verde y los datos del vehículo involucrado, si corresponden.",
+    },
+  ],
+  documentationNote:
+    "No frenes la consulta si no tenés todo. Si hoy te falta parte de la documentación, igual podés enviarnos el caso y te indicamos qué conviene reunir.",
+
+  reviews: [],
 
   processSteps: [
     {
-      title: "Consultá sin cargo",
-      text: "Escribinos por WhatsApp o llamanos al 11-4673-4420. Contanos tu situación y te orientamos sin costo ni compromiso.",
+      title: "Consultá de inmediato",
+      text: "Escribinos por WhatsApp o llamanos al 261 255-7461 / 261 558-3158. Contanos tu situación penal o de accidente y te orientamos sin demoras.",
     },
     {
       title: "Analizamos tu caso",
-      text: "Nuestros abogados laboralistas evalúan tu situación y te explican qué derechos tenés y cuál es el mejor camino.",
+      text: "Evaluamos riesgos, la situación procesal o el reclamo frente a la aseguradora, y definimos la estrategia legal más sólida.",
     },
     {
-      title: "Iniciamos tu reclamo",
-      text: "Nos encargamos de telegramas, SECLO y procesos judiciales. Solo cobramos honorarios si obtenemos un resultado favorable.",
+      title: "Actuamos por vos",
+      text: "Intervenimos en comisarías y juzgados, negociamos con aseguradoras o iniciamos el proceso judicial. Acompañamiento constante y confidencial.",
     },
   ],
 
   whyReasons: [
     {
-      text: "<strong>Consulta sin cargo:</strong> la primera orientación es gratuita por WhatsApp o teléfono, las 24 horas.",
+      text: "<strong>Experiencia:</strong> más de 20 años de trayectoria y un equipo interdisciplinario para causas penales y accidentes de tránsito.",
     },
     {
-      text: "<strong>Sin costos previos:</strong> financiamos los gastos del reclamo. Solo cobramos si ganamos.",
+      text: "<strong>Velocidad:</strong> actuación inmediata ante detenciones, allanamientos, imputaciones y urgencias las 24 horas.",
     },
     {
-      text: "<strong>Equipo especializado:</strong> abogados laboralistas dedicados a la defensa de los derechos de los trabajadores.",
+      text: "<strong>Eficacia:</strong> estrategia preventiva, negociación con aseguradoras y defensa en Mendoza y Justicia Federal.",
     },
     {
-      text: "<strong>Resolución rápida y eficaz:</strong> telegramas, audiencias ante el SECLO y conducción de procesos judiciales.",
+      text: "<strong>Confidencialidad:</strong> toda comunicación está protegida por el secreto profesional, con estricta reserva.",
     },
   ],
 
   faq: [
     {
-      question: "¿La consulta tiene algún costo?",
+      question: "¿Cuándo debería contactar a un abogado penalista?",
       answer:
-        "No. La consulta es sin cargo y sin compromiso. Podés contactarnos por WhatsApp al 11-4673-4420 o por teléfono y un abogado te orientará sobre tu caso.",
+        "Ante cualquier denuncia, imputación, citación judicial, allanamiento o situación penal inesperada, actuar rápidamente puede marcar una diferencia determinante. El asesoramiento temprano permite proteger derechos, evitar errores y definir una estrategia legal sólida desde el inicio.",
     },
     {
-      question: "¿Tengo que pagar algo por adelantado?",
+      question: "¿El estudio atiende urgencias penales?",
       answer:
-        "No cobramos gastos ni adelantos. Financiamos los costos del reclamo y solo cobramos honorarios en caso de obtener un resultado exitoso para vos.",
+        "Sí. El estudio interviene de manera inmediata ante detenciones, allanamientos, declaraciones indagatorias, conflictos penales complejos y situaciones que requieren asistencia urgente. Nuestro equipo se encuentra preparado para actuar con rapidez y eficiencia.",
     },
     {
-      question: "¿Qué pasa si trabajé en negro?",
+      question: "¿Qué diferencia al estudio frente a otros estudios jurídicos?",
       answer:
-        "Aunque no tengas recibos de sueldo, podés reclamar el reconocimiento de la relación laboral, indemnizaciones y aportes. Somos especialistas en trabajo en negro.",
+        "La experiencia, el trabajo estratégico, la rapidez de respuesta y el acompañamiento constante forman parte del enfoque del estudio. Más de 20 años de trayectoria y un equipo interdisciplinario permiten abordar casos complejos con profesionalismo, discreción y compromiso.",
     },
     {
-      question: "¿Atienden las 24 horas?",
+      question: "¿Qué tipo de casos penales trabaja el estudio?",
       answer:
-        "Sí. Nuestro equipo atiende consultas por WhatsApp y teléfono las 24 horas, todos los días. Muchos clientes lo confirman en sus reseñas de Google.",
+        "El estudio se especializa en Derecho Penal y trabaja en causas vinculadas a delitos económicos, homicidios, robos, narcotráfico, abuso sexual, violencia de género, ciberdelitos, querellas, revisiones de causas penales, recursos e impugnaciones, entre otras áreas complejas, tanto en el ámbito provincial de Mendoza como en la Justicia Federal.",
+    },
+    {
+      question: "¿El estudio también trabaja Derecho Civil?",
+      answer:
+        "Sí. Además de su fuerte especialización en Derecho Penal, el estudio está especializado también en Accidentes de Tránsito.",
+    },
+    {
+      question: "¿La consulta es confidencial?",
+      answer:
+        "Absolutamente. Toda comunicación con el estudio se encuentra protegida por el secreto profesional y es tratada con estricta reserva y confidencialidad.",
+    },
+    {
+      question: "¿Cómo es la primera consulta?",
+      answer:
+        "La primera reunión permite analizar el caso, evaluar riesgos, comprender la situación procesal y definir posibles líneas de acción. Puede realizarse de manera presencial o virtual, según las necesidades del cliente.",
+    },
+    {
+      question: "¿Puedo realizar consultas virtuales?",
+      answer:
+        "Sí. El estudio ofrece reuniones virtuales para clientes de distintas ciudades o situaciones que requieran mayor comodidad y privacidad.",
+    },
+    {
+      question: "¿Qué ocurre si soy investigado o citado en una causa penal?",
+      answer:
+        "Recibir una citación judicial o verse involucrado en una investigación penal no implica necesariamente culpabilidad. Contar con asesoramiento legal desde el primer momento resulta fundamental para proteger derechos, evitar errores procesales y afrontar la situación con una estrategia jurídica adecuada y confidencial.",
     },
     {
       question: "¿En qué zonas atienden?",
       answer:
-        "Nuestro estudio está en Tucumán 1668, 2ºA, CABA. Atendemos casos en Capital Federal y Gran Buenos Aires.",
-    },
-    {
-      question: "¿Qué documentación necesito para la consulta?",
-      answer:
-        "Para la primera consulta no necesitás documentación. Contanos tu situación y te indicaremos qué documentos conviene reunir según tu caso.",
+        "Nuestro estudio está en Mitre 535, 1° piso, oficinas 43 y 44, Ciudad de Mendoza. Atendemos causas en el ámbito provincial de Mendoza y en la Justicia Federal.",
     },
   ],
 };
 
 export const SEO = {
-  title: "Abogados Laborales CABA | Despidos y Accidentes | Consulta Gratis",
+  title:
+    "Abogados Penalistas y Accidentes de Tránsito Mendoza | Hidalgo & Crifo",
   description:
-    "Abogados laborales. Especialistas en despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo por WhatsApp 11-4673-4420, 24 horas. 5 estrellas en Google.",
+    "Hidalgo & Crifo Abogados. Defensa penal urgente las 24 hs y reclamos por accidentes de tránsito en Mendoza. Consultá por WhatsApp al 261 255-7461 / 261 558-3158.",
   ogDescription:
-    "Abogados laborales. Despidos, accidentes de trabajo y empleo en negro. Consulta sin cargo: 11-4673-4420. 5 estrellas en Google.",
+    "Estudio jurídico en Mendoza. Derecho penal y accidentes de tránsito. Defensa urgente las 24 hs. WhatsApp 261 255-7461 / 261 558-3158.",
   twitterDescription:
-    "Abogados laborales. Consulta sin cargo por WhatsApp 11-4673-4420. 5 estrellas en Google.",
+    "Defensa penal urgente y accidentes de tránsito en Mendoza. Hidalgo & Crifo Abogados. WhatsApp 261 255-7461 / 261 558-3158.",
   ogImageAlt:
-    "Abogados Laborales — Defendemos tus derechos laborales",
-  googleAdsId: "AW-996950383",
+    "Hidalgo & Crifo Abogados — Defensa penal y accidentes de tránsito en Mendoza",
+  googleAdsId: "",
 } as const;

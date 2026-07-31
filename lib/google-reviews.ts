@@ -130,19 +130,27 @@ export async function fetchFromJsonCache(): Promise<GoogleReviewsPayload | null>
 }
 
 function getConfigFallbackReviews(): GoogleReviewsPayload {
+  const reviews = SITE_CONFIG.reviews;
   const avgRating =
-    SITE_CONFIG.reviews.reduce((sum, review) => sum + review.rating, 0) /
-    SITE_CONFIG.reviews.length;
+    reviews.length > 0
+      ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
+      : 0;
 
   const payload = normalizePayload({
     rating: avgRating,
-    reviewCount: SITE_CONFIG.reviews.length,
-    reviews: SITE_CONFIG.reviews,
+    reviewCount: reviews.length,
+    reviews,
     source: "config-fallback",
   });
 
   if (!payload) {
-    throw new Error("No se pudo generar fallback de reseñas");
+    return {
+      rating: 0,
+      reviewCount: 0,
+      reviews: [],
+      source: "config-fallback",
+      fetchedAt: new Date().toISOString(),
+    };
   }
 
   return payload;

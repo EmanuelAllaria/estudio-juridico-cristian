@@ -1,25 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 88" role="img" aria-label="Abogados Laborales">
-  <g fill="none" stroke="#E82626" stroke-width="2.75" stroke-linecap="square">
-    <path d="M6 6 H394 V50 H248 M152 50 H6 V6" />
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" role="img" aria-label="Hidalgo &amp; Crifo Abogados">
   <text
-    x="200"
-    y="36"
+    x="210"
+    y="32"
     text-anchor="middle"
-    font-family="Arial, Helvetica, 'Segoe UI', sans-serif"
-    font-size="30"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="26"
     font-weight="700"
-    letter-spacing="0.14em"
-    fill="#FFFFFF"
-  >ABOGADOS</text>
+    letter-spacing="0.06em"
+    fill="#F7F3E9"
+  >HIDALGO &amp; CRIFO</text>
+  <line x1="120" y1="42" x2="300" y2="42" stroke="#D4AF37" stroke-width="1.5" />
   <text
-    x="200"
-    y="72"
+    x="210"
+    y="62"
     text-anchor="middle"
-    font-family="Arial, Helvetica, 'Segoe UI', sans-serif"
-    font-size="15"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="11"
     font-weight="400"
-    letter-spacing="0.22em"
-    fill="#FFFFFF"
-  >LABORALES</text>
+    letter-spacing="0.28em"
+    fill="#D4AF37"
+  >ABOGADOS</text>
 </svg>

@@ -1,15 +1,8 @@
-"use client";
-
 import { WhatsAppIcon } from "@/components/ui/Icon";
-import { useGoogleReviews } from "@/components/GoogleReviewsProvider";
 import { SITE_CONFIG } from "@/lib/site-config";
-import { formatRating } from "@/lib/stars";
 import { getWhatsAppUrl } from "@/lib/urls";
 
 export function WhyUs() {
-  const { data } = useGoogleReviews();
-  const ratingText = formatRating(data.rating);
-
   return (
     <section className="section section--warm why-us" aria-labelledby="porque-title">
       <div className="container">
@@ -17,12 +10,11 @@ export function WhyUs() {
           <div className="why-grid__content">
             <span className="section-label">Por qué elegirnos</span>
             <h2 id="porque-title" className="section-title">
-              Un estudio que pone al trabajador primero
+              Un estudio preparado para actuar de inmediato
             </h2>
             <p className="section-subtitle">
-              A diferencia de estudios tradicionales, nos enfocamos en
-              resultados concretos para vos, sin letra chica ni costos
-              ocultos.
+              Especialistas en derecho penal y accidentes de tránsito en
+              Mendoza. Experiencia, velocidad, eficacia y confidencialidad.
             </p>
 
             <ul className="why-list" id="why-list">
@@ -58,26 +50,26 @@ export function WhyUs() {
               rel="noopener noreferrer"
             >
               <WhatsAppIcon />
-              Consultá gratis por WhatsApp
+              Consultá por WhatsApp
             </a>
           </div>
 
           <div className="why-grid__stats">
             <div className="stat-card stat-card--highlight">
-              <span className="stat-card__number">{ratingText}</span>
-              <span className="stat-card__label">Estrellas en Google</span>
-            </div>
-            <div className="stat-card stat-card--highlight">
-              <span className="stat-card__number">{data.reviewCount}</span>
-              <span className="stat-card__label">Opiniones verificadas</span>
+              <span className="stat-card__number">20+</span>
+              <span className="stat-card__label">Años de trayectoria</span>
             </div>
             <div className="stat-card stat-card--highlight">
               <span className="stat-card__number">24hs</span>
-              <span className="stat-card__label">Atención disponible</span>
+              <span className="stat-card__label">Defensa penal urgente</span>
             </div>
             <div className="stat-card stat-card--highlight">
-              <span className="stat-card__number">$0</span>
-              <span className="stat-card__label">Consulta sin cargo</span>
+              <span className="stat-card__number">2</span>
+              <span className="stat-card__label">Áreas de especialización</span>
+            </div>
+            <div className="stat-card stat-card--highlight">
+              <span className="stat-card__number">MDZ</span>
+              <span className="stat-card__label">Mendoza y Justicia Federal</span>
             </div>
           </div>
         </div>

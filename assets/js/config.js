@@ -1,26 +1,31 @@
 /**
- * CONFIGURACIÓN DEL SITIO — Datos reales de aboglaborales.com.ar y Google Maps
+ * CONFIGURACIÓN DEL SITIO — Hidalgo & Crifo Abogados (Mendoza)
+ * Nota: la fuente de verdad es lib/site-config.ts (App Router).
+ * Este archivo alimenta solo el legacy estático (assets/).
  */
 
 var SITE_CONFIG = {
-  brand: "Abogados Laborales & Asoc.",
-  phone: "+54 9 11 4673-4420",
-  whatsapp: "541146734420",
+  brand: "Hidalgo & Crifo Abogados",
+  phones: ["261 255-7461", "261 558-3158"],
+  whatsapps: ["5492612557461", "5492615583158"],
+  phone: "261 255-7461",
+  whatsapp: "5492612557461",
   whatsappMessage:
-    "Hola, quiero hacer una consulta laboral sin cargo. Vi su página y me gustaría que me asesoren.",
-  email: "info@aboglaborales.com.ar",
-  address: "Tucumán 1668, 2ºA - CABA",
-  mapsUrl: "https://maps.app.goo.gl/weeMB9y9jiw2BjBy5",
+    "Hola, necesito asesoramiento legal urgente. Vi su página y me gustaría que me orienten.",
+  email: "alejandrohidalgoabogado@hotmail.com",
+  address: "Mitre 535, 1° piso, oficinas 43 y 44, Ciudad de Mendoza",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Mitre+535+Mendoza",
   googleMapsUrl:
-    "https://www.google.com/maps/place/Abogados+Laborales+%26+Asoc./@-34.6020072,-58.3907044,17z/data=!3m1!4b1!4m6!3m5!1s0x95bccba0ab8466f9:0x9198d8f008c1f834!8m2!3d-34.6020072!4d-58.3907044!16s%2Fg%2F11cn3vx9hq",
-  domain: "https://www.aboglaborales.com.ar",
-  googlePlaceId: "ChIJ-WaEq6DLvJURNPjBCPDYmJE",
+    "https://www.google.com/maps/search/?api=1&query=Mitre+535+Mendoza",
+  domain: "https://www.defensasyaccidentes.com.ar",
+  googlePlaceId: "",
   /** API key de Google Places (New). Opcional si usás placesApiProxy. */
   placesApiKey: "",
   /** Proxy PHP en el hosting — recomendado para datos en vivo sin exponer la key. */
   placesApiProxy: "/api/google-reviews.php",
-  googleRating: 5,
-  reviewCount: 174,
+  googleRating: 0,
+  reviewCount: 0,
 
   trustBadges: [
     {

@@ -2,6 +2,10 @@ import Script from "next/script";
 import { SEO } from "@/lib/site-config";
 
 export function GoogleAds() {
+  if (!SEO.googleAdsId) {
+    return null;
+  }
+
   return (
     <>
       <Script

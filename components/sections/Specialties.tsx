@@ -13,11 +13,10 @@ export function Specialties() {
         <header className="section-header section-header--center">
           <span className="section-label">Áreas de especialización</span>
           <h2 id="servicios-title" className="section-title">
-            ¿En qué podemos ayudarte?
+            ¿En qué situación te encontrás?
           </h2>
           <p className="section-subtitle">
-            Tocá el servicio que necesitás y escribinos por WhatsApp con tu
-            consulta.
+            Defensa penal urgente: tocá tu situación y escribinos por WhatsApp.
           </p>
         </header>
 

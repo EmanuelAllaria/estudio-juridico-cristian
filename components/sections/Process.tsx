@@ -14,8 +14,8 @@ export function Process() {
             Cómo funciona tu consulta
           </h2>
           <p className="section-subtitle">
-            En tres pasos simples empezamos a defender tus derechos. Sin
-            trámites complicados.
+            En tres pasos empezamos a proteger tus derechos. Respuesta rápida y
+            confidencial.
           </p>
         </header>
 

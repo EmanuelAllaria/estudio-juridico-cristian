@@ -1,30 +1,39 @@
 "use client";
 
+import Image from "next/image";
 import { Icon, PhoneIcon } from "@/components/ui/Icon";
 import { WhatsAppCtaLink } from "@/components/ui/WhatsAppCtaLink";
-import { useGoogleReviews } from "@/components/GoogleReviewsProvider";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { getPhoneUrl } from "@/lib/urls";
 
 export function Hero() {
-  const { data } = useGoogleReviews();
-
   return (
     <section id="inicio" className="hero section" aria-labelledby="hero-title">
+      <div className="hero__media" aria-hidden="true">
+        <Image
+          src="/images/hero-justicia.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="hero__media-img"
+        />
+      </div>
       <div className="hero__accent-bar" aria-hidden="true" />
       <div className="hero__bg-glow" aria-hidden="true" />
 
       <div className="container hero__inner">
         <div className="hero__content">
           <span className="hero__eyebrow reveal reveal--left">
-            Abogados laboralistas
+            Hidalgo & Crifo Abogados
           </span>
           <h1 id="hero-title" className="hero__title reveal reveal--left">
-            Defendemos tus derechos{" "}
+            Defensa penal urgente las 24 hs
           </h1>
           <p className="hero__subtitle reveal reveal--left">
-            Despidos, trabajo en negro y accidentes laborales. Consultá sin
-            cargo y recibí orientación de abogados laboralistas las 24 horas.
+            Actuamos inmediatamente ante detenciones, allanamientos o
+            imputaciones. También reclamos por accidentes de tránsito en
+            Mendoza.
           </p>
 
           <div className="hero__cta-group reveal reveal--left">

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Cinzel, Montserrat } from "next/font/google";
 import { GoogleAds } from "@/components/GoogleAds";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { SmoothScroll } from "@/components/SmoothScroll";
@@ -7,11 +7,18 @@ import { Tracking } from "@/components/Tracking";
 import { SEO, SITE_CONFIG } from "@/lib/site-config";
 import "./globals.css";
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-montserrat",
+});
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+  variable: "--font-cinzel",
 });
 
 const ogImage = `${SITE_CONFIG.domain}/images/og-image.jpg`;
@@ -67,7 +74,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abogados Laborales CABA | Consulta Gratis",
+    title: SEO.title,
     description: SEO.twitterDescription,
     images: [ogImage],
   },
@@ -77,15 +84,15 @@ export const metadata: Metadata = {
   },
   category: "legal",
   other: {
-    "geo.region": "AR-C",
-    "geo.placename": "Buenos Aires",
-    "geo.position": "-34.6020072;-58.3907044",
-    ICBM: "-34.6020072, -58.3907044",
+    "geo.region": "AR-M",
+    "geo.placename": "Mendoza",
+    "geo.position": "-32.8894587;-68.8458386",
+    ICBM: "-32.8894587, -68.8458386",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#c8102e",
+  themeColor: "#0D1B2A",
   width: "device-width",
   initialScale: 1,
 };
@@ -96,8 +103,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es-AR">
-      <body className={inter.className}>
+    <html lang="es-AR" className={`${montserrat.variable} ${cinzel.variable}`}>
+      <body className={montserrat.className}>
         <GoogleAds />
         {children}
         <ScrollReveal />
