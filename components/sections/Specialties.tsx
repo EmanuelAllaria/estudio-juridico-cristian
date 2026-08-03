@@ -5,7 +5,7 @@ import { getWhatsAppUrl } from "@/lib/urls";
 export function Specialties() {
   return (
     <section
-      id="servicios"
+      id="penal"
       className="section section--warm"
       aria-labelledby="servicios-title"
     >

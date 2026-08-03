@@ -271,7 +271,7 @@ export function buildSchema(config: PageConfig) {
           cssSelector: ["#hero-title", ".hero__subtitle", "#cobertura-title"],
         },
         significantLink: [
-          `${config.domain}/#servicios`,
+          `${config.domain}/#penal`,
           `${config.domain}/#accidentes`,
           `${config.domain}/#faq`,
         ],
@@ -291,7 +291,7 @@ export function buildSchema(config: PageConfig) {
             "@type": "ListItem",
             position: 2,
             name: "Defensa penal",
-            item: `${config.domain}/#servicios`,
+            item: `${config.domain}/#penal`,
           },
           {
             "@type": "ListItem",

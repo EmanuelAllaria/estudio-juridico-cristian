@@ -26,10 +26,10 @@ function markRevealTargets() {
     addReveal(el);
   });
 
-  const serviciosHeader = document.querySelector("#servicios .section-header");
+  const serviciosHeader = document.querySelector("#penal .section-header");
   if (serviciosHeader) addReveal(serviciosHeader, "reveal--fade");
 
-  document.querySelectorAll("#servicios .specialty-card").forEach((el) => {
+  document.querySelectorAll("#penal .specialty-card").forEach((el) => {
     addReveal(el);
   });
 
@@ -136,7 +136,7 @@ function initScrollReveal() {
 
   const groupSelectors = [
     ".trust-bar",
-    "#servicios",
+    "#penal",
     "#resenas",
     "#proceso",
     "section:has(.why-grid)",

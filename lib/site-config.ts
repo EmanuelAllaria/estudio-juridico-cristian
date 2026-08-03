@@ -112,7 +112,7 @@ export const SITE_CONFIG: SiteConfig = {
   googleMapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Mitre+535+Mendoza",
   instagramUrl: "",
-  domain: "https://www.defensasyaccidentes.com.ar",
+  domain: "https://www.abogadospenalistasyaccidentes.com.ar",
   googlePlaceId: "",
 
   trustBadges: [
@@ -343,14 +343,14 @@ export const SITE_CONFIG: SiteConfig = {
 
 export const SEO = {
   title:
-    "Abogado Penalista Mendoza 24 hs | Accidentes de Tránsito | Hidalgo & Crifo",
-  titleShort: "Abogado Penalista y Accidentes Mendoza | Hidalgo & Crifo",
+    "Abogados Penalistas Mendoza 24 hs | Accidentes de Tránsito | Hidalgo & Crifo",
+  titleShort: "Abogados Penalistas y Accidentes Mendoza | Hidalgo & Crifo",
   description:
     "Defensa penal urgente en Mendoza las 24 hs: detenciones, citaciones y allanamientos. También reclamos por accidentes de tránsito ante aseguradoras. Hidalgo & Crifo Abogados — WhatsApp 261 255-7461 / 261 558-3158.",
   ogDescription:
     "Estudio en Mendoza para urgencias penales y reclamos por accidentes de tránsito. Actuación inmediata, confidencial. Mitre 535. WhatsApp 261 255-7461 / 261 558-3158.",
   twitterDescription:
-    "Abogado penalista 24 hs y accidentes de tránsito en Mendoza. Hidalgo & Crifo. WhatsApp 261 255-7461 / 261 558-3158.",
+    "Abogados penalistas 24 hs y accidentes de tránsito en Mendoza. Hidalgo & Crifo. WhatsApp 261 255-7461 / 261 558-3158.",
   ogImageAlt:
     "Hidalgo & Crifo Abogados — Defensa penal urgente y accidentes de tránsito en Mendoza",
   /** Clusters de intención (contenido + schema), no spam de meta keywords */

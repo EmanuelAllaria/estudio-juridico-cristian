@@ -35,6 +35,10 @@ export function Hero() {
             imputaciones. También reclamos por accidentes de tránsito en
             Mendoza.
           </p>
+          <ul className="hero__focus reveal reveal--left">
+            <li>Abogados penalistas en Mendoza</li>
+            <li>Abogados especialistas en Accidentes de tránsito</li>
+          </ul>
 
           <div className="hero__cta-group reveal reveal--left">
             <WhatsAppCtaLink
@@ -54,19 +58,9 @@ export function Hero() {
         </div>
 
         <div className="hero__trust-panel reveal reveal--scale reveal--right">
-          <p className="hero__trust-panel-title">
+          <p className="hero__trust-panel-title" style={{ marginBottom: 0 }}>
             {SITE_CONFIG.heroStatsTitle}
           </p>
-          <ul className="hero__trust-list">
-            {SITE_CONFIG.trustBadges.map((badge) => (
-              <li key={badge.text} className="hero__trust-item">
-                <span className="hero__trust-icon" aria-hidden="true">
-                  <Icon name={badge.icon} />
-                </span>
-                <span className="hero__trust-text">{badge.text}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 

@@ -16,14 +16,14 @@ export function SeoCoverage() {
         <header className="section-header">
           <span className="section-label">Cobertura en Mendoza</span>
           <h2 id="cobertura-title" className="section-title">
-            Abogado penalista y accidentes de tránsito en Mendoza
+            Abogados penalistas y accidentes de tránsito en Mendoza
           </h2>
         </header>
 
         <div className="seo-coverage__grid">
           <article className="seo-coverage__card">
             <h3 className="seo-coverage__subtitle">
-              Defensa penal urgente las 24 horas
+              Abogados penalistas en Mendoza
             </h3>
             <p>
               Si vos o un familiar enfrentan una{" "}
@@ -41,14 +41,14 @@ export function SeoCoverage() {
               recursos— con confidencialidad absoluta y respuesta inmediata por
               WhatsApp o teléfono.
             </p>
-            <a href="#servicios" className="btn--link">
+            <a href="#penal" className="btn--link">
               Ver situaciones penales →
             </a>
           </article>
 
           <article className="seo-coverage__card">
             <h3 className="seo-coverage__subtitle">
-              Reclamos por accidentes de tránsito
+              Abogados especialistas en Accidentes de tránsito
             </h3>
             <p>
               Un <strong>abogado de accidentes de tránsito en Mendoza</strong>{" "}

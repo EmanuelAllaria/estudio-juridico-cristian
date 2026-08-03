@@ -8,9 +8,9 @@ import { WhatsAppCtaLink } from "@/components/ui/WhatsAppCtaLink";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 const NAV_LINKS = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#accidentes", label: "Accidentes" },
-  { href: "#cobertura", label: "Mendoza" },
+  { href: "#penal", label: "Servicios" },
+  { href: "#penal", label: "Penal" },
+  { href: "#accidentes", label: "Accidentes de tránsito" },
   { href: "#proceso", label: "Cómo funciona" },
   { href: "#faq", label: "Preguntas Frecuentes" },
 ] as const;
@@ -91,7 +91,7 @@ export function Header() {
             <nav aria-label="Menú móvil">
               <ul className="mobile-menu__list">
                 {NAV_LINKS.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.label}>
                     <a
                       href={link.href}
                       className="mobile-menu__link"
@@ -142,7 +142,7 @@ export function Header() {
           >
             <ul className="header__nav-list">
               {NAV_LINKS.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <a href={link.href} className="header__nav-link">
                     {link.label}
                   </a>
