@@ -386,6 +386,6 @@ export const SEO = {
     latitude: -32.8894587,
     longitude: -68.8458386,
   },
-  googleAdsId: "",
+  googleAdsId: "AW-18386608666",
 } as const;
 
